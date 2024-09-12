@@ -8,6 +8,7 @@ class Node {
 class Linked {
   constructor() {
     this.head = null;
+    this.size = 0; // Initialize size property
   }
 
   insertAtTail(data) {
@@ -22,6 +23,7 @@ class Linked {
       }
       curr.next = newNode;
     }
+    this.size++; // Increment size
   }
 
   insertAtHead(data) {
@@ -32,15 +34,15 @@ class Linked {
       newNode.next = this.head;
       this.head = newNode;
     }
+    this.size++; // Increment size
   }
 
-  insertAtPosition(pos, data) {
+  insertAtPosition(data, pos) {
     if (pos < 0) {
+      console.error("Invalid position: cannot be negative");
       return -1;
     } else if (pos === 0) {
-      const newNode = new Node(data);
-      newNode.next = this.head;
-      this.head = newNode;
+      this.insertAtHead(data);
     } else {
       let curr = this.head;
       let cnt = 0;
@@ -49,15 +51,17 @@ class Linked {
         curr = curr.next;
       }
       if (curr === null) {
+        console.error("Invalid position: position exceeds list length");
         return -1;
       }
-
+  
       const newNode = new Node(data);
       newNode.next = curr.next;
       curr.next = newNode;
+      this.size++; // Increment size
     }
   }
-
+  
   searchByVal(data) {
     let curr = this.head;
     while (curr !== null) {
@@ -77,6 +81,10 @@ class Linked {
       curr = curr.next;
     }
     console.log(result.join(" -> "));
+  }
+
+  getLength() {
+    return this.size; // Return the size
   }
 }
 
