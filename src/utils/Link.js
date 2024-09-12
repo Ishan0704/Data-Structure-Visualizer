@@ -9,7 +9,26 @@ list.insertAtTail(3);
 list.insertAtHead(4);
 list.insertAtHead(5);
 list.insertAtPosition(2,6);
-const ans = list.searchByVal(2);
+list.printList();
+console.log("Searching : ");
+const ans = list.searchByVal(4);
+const ans1 = list.searchByVal(9999);
+console.log(ans1);
+list.searchByPos(2);
+
+console.log("Updation at head : ");
+list.updateAtHead(8);
+list.updateAtHead(10);
 list.printList();
 
-console.log(`Search result for 2: ${ans}`);
+console.log("Updation at Position : ");
+list.updateAtPos(7,2);
+list.printList();
+console.log("Deleting at head : ");
+list.deleteAtHead();
+
+list.deleteAtTail();
+
+list.deleteAtPos(0);
+list.printList();
+

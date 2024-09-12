@@ -50,7 +50,7 @@ const LinkedList = () => {
     if (inputValue) {
       const res = list.searchByVal(inputValue);
       list.printList();
-      if(res)
+      if(res===true)
       {
         alert("Value is found");
       }
@@ -58,7 +58,55 @@ const LinkedList = () => {
       setInputValue(''); // Clear the input after insertion
     }
   }
+  const handleSearchByPosition=()=>{
+    if (inputValue)
+    {
+      list.searchByPos(inputValue);
+    }
+    setInputValue('');
+  }
 
+  const handleUpdateAtHead=()=>{
+    if (inputValue) {
+      list.updateAtHead(inputValue);
+      list.printList();
+      setInputValue(''); 
+    }
+  }
+  const handleUpdateAtPosition=()=>{
+    if (inputValue) {
+      const pos = window.prompt("Enter the position:");
+      if (pos !== null && !isNaN(pos)) {
+        const position = parseInt(pos, 10);
+        if (position >= 0 && position <= list.getLength()) {
+          list.updateAtPos(inputValue, position);
+          list.printList();
+          setInputValue(''); 
+        } else {
+          alert("Please enter a valid position within the list boundaries.");
+        }
+      } else {
+        alert("Please enter a valid position.");
+      }
+    }
+  }
+
+  const handleDeleteAtHead=()=>{
+    list.deleteAtHead();
+    list.printList();
+  }
+
+  const handleDeleteAtTail=()=>{
+    list.deleteAtTail();
+    list.printList();
+  }
+
+  const handleDeleteAtPos=()=>{
+    const pos = window.prompt("Enter the position:");
+    const position = parseInt(pos, 10);
+    list.deleteAtPos(position);
+    list.printList();
+  }
   return (
     <>
       <div className="container1">
@@ -87,23 +135,23 @@ const LinkedList = () => {
 
         {operation === 'update' && (
           <div className="operation_open">
-            <button>At Head</button>
-            <button>At Position</button>
+            <button onClick={handleUpdateAtHead}>At Head</button>
+            <button onClick={handleUpdateAtPosition}>At Position</button>
           </div>
         )}
 
         {operation === 'delete' && (
           <div className="operation_open">
-            <button>At Head</button>
-            <button>At Tail</button>
-            <button>At Position</button>
+            <button onClick={handleDeleteAtHead}>At Head</button>
+            <button onClick={handleDeleteAtTail}>At Tail</button>
+            <button onClick={handleDeleteAtPos}>At Position</button>
           </div>
         )}
 
         {operation === 'search' && (
           <div className="operation_open">
             <button onClick={handleSearchByValue} >By Value</button>
-            <button>By Index</button>
+            <button onClick={handleSearchByPosition}>By Index</button>
           </div>
         )}
       </div>

@@ -8,7 +8,7 @@ class Node {
 class Linked {
   constructor() {
     this.head = null;
-    this.size = 0; // Initialize size property
+    this.size = 0;
   }
 
   insertAtTail(data) {
@@ -23,7 +23,7 @@ class Linked {
       }
       curr.next = newNode;
     }
-    this.size++; // Increment size
+    this.size++;
   }
 
   insertAtHead(data) {
@@ -34,7 +34,7 @@ class Linked {
       newNode.next = this.head;
       this.head = newNode;
     }
-    this.size++; // Increment size
+    this.size++;
   }
 
   insertAtPosition(data, pos) {
@@ -54,31 +54,145 @@ class Linked {
         console.error("Invalid position: position exceeds list length");
         return -1;
       }
-  
+
       const newNode = new Node(data);
       newNode.next = curr.next;
       curr.next = newNode;
-      this.size++; // Increment size
+      this.size++;
     }
   }
-  
+  updateAtHead(data) {
+    if (this.head === null) {
+      return -1;
+    } else {
+      this.head.data = data;
+    }
+  }
+
+  updateAtPos(data, pos) {
+    let cnt = 0;
+    if (pos < 0) {
+      console.log("Please Enter correct details");
+    } else if (pos === 0) {
+      this.updateAtHead(data);
+    } else if (pos > this.size) {
+      return;
+    } else {
+      let curr = this.head;
+      while (curr != null) {
+        cnt++;
+        if (cnt === pos - 1) {
+          curr.next.data = data;
+        }
+        curr = curr.next;
+      }
+    }
+  }
   searchByVal(data) {
     let cnt = 0;
+    let flag=0;
     let curr = this.head;
     while (curr !== null) {
       cnt++;
       if (curr.data === data) {
-        console.log("Found at index : ",cnt); 
+        flag=1;
+        console.log("Found at index : ", cnt);
       }
       curr = curr.next;
     }
-    // if(cnt===0)
-    // {
-    //   return false;
-    // }
-    // return true;
+    if (flag===1)
+    {
+      return true;
+    }
+  }
+
+  searchByPos(data) {
+    let cnt = 0;
+    let curr = this.head;
+    if (data>this.size)
+    {
+      return;
+    }
+    if (data===1)
+    {
+      console.log(curr.data);
+    }
+    while (curr !== null) {
+      cnt++;
+      if (cnt === data - 1) {
+        console.log("Element present : ", curr.next.data);
+        // console.log("Found at index : ",cnt);
+      }
+      curr = curr.next;
+    }
     
   }
+  deleteAtHead() {
+    if (this.head === null) {
+      console.log("The list is already empty.");
+      return;
+    }
+    this.head = this.head.next;
+    this.size--;
+  }
+
+  deleteAtTail() {
+    if (this.head === null) {
+        console.log("The list is empty.");
+        return;
+    }
+
+    if (this.head.next === null) {
+        this.head = null;
+    } else {
+        let curr = this.head;
+        let prev = null;
+        while (curr.next !== null) {
+            prev = curr;
+            curr = curr.next;
+        }
+        prev.next = null; 
+    }
+    this.size--; 
+}
+
+deleteAtPos(pos) {
+  if (pos < 0 || pos >= this.size) {
+    console.log("Please enter a correct position");
+    return;
+  }
+
+  // delete at head
+  if (pos === 0) {
+    this.deleteAtHead();
+    return;
+  }
+
+  // delete at tail
+  if (pos === this.size - 1) {
+    this.deleteAtTail();
+    return;
+  }
+
+  // delete at any other position
+  let curr = this.head;
+  let prev = null;
+  let cnt = 0;
+
+  while (curr !== null && cnt < pos) {
+    prev = curr;
+    curr = curr.next;
+    cnt++;
+  }
+
+  if (curr !== null) {
+    prev.next = curr.next;
+    curr.next = null; 
+    this.size--; 
+  }
+}
+
+
 
   printList() {
     let curr = this.head;
