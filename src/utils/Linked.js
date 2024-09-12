@@ -72,11 +72,11 @@ class Linked {
       }
       curr = curr.next;
     }
-    if(cnt===0)
-    {
-      return false;
-    }
-    return true;
+    // if(cnt===0)
+    // {
+    //   return false;
+    // }
+    // return true;
     
   }
 
