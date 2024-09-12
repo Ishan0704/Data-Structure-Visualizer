@@ -1,0 +1,42 @@
+nav {
+  background-color: rgba(94, 105, 114, 0.795);
+  padding: 3px;
+  border-radius: 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.frame1 {
+  display: flex;
+  align-items: center;
+}
+
+#image1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.frame2 {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.frame2 ul {
+  list-style-type: none;
+  margin: 0 10px;
+  padding: 0;
+  color: white;
+  cursor: pointer;
+}
+
+.frame2 ul:hover {
+  color: black;
+}
