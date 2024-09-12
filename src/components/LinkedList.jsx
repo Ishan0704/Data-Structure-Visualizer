@@ -46,6 +46,19 @@ const LinkedList = () => {
     }
   };  
 
+  const handleSearchByValue = () =>{
+    if (inputValue) {
+      const res = list.searchByVal(inputValue);
+      list.printList();
+      if(res)
+      {
+        alert("Value is found");
+      }
+      console.log(res);
+      setInputValue(''); // Clear the input after insertion
+    }
+  }
+
   return (
     <>
       <div className="container1">
@@ -89,8 +102,8 @@ const LinkedList = () => {
 
         {operation === 'search' && (
           <div className="operation_open">
-            <button>By Value</button>
-            <button>By Position</button>
+            <button onClick={handleSearchByValue} >By Value</button>
+            <button>By Index</button>
           </div>
         )}
       </div>

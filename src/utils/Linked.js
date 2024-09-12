@@ -63,14 +63,21 @@ class Linked {
   }
   
   searchByVal(data) {
+    let cnt = 0;
     let curr = this.head;
     while (curr !== null) {
+      cnt++;
       if (curr.data === data) {
-        return true; 
+        console.log("Found at index : ",cnt); 
       }
       curr = curr.next;
     }
-    return false;
+    if(cnt===0)
+    {
+      return false;
+    }
+    return true;
+    
   }
 
   printList() {
