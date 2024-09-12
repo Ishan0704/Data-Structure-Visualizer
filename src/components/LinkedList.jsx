@@ -9,6 +9,7 @@ const LinkedList = () => {
   };
 
   return (
+    <>
     <div className="container1">
       <input type="number" placeholder="Enter the number" />
 
@@ -49,6 +50,13 @@ const LinkedList = () => {
         </div>
       )}
     </div>
+    
+    <div className='reference'>
+    For more deatails visit - 
+    <a className='link'href="https://www.geeksforgeeks.org/linked-list-data-structure/" target='_blank'>https://www.geeksforgeeks.org/linked-list-data-structure</a>
+  </div>
+    </>
+    
   );
 };
 

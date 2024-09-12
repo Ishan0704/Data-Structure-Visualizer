@@ -61,3 +61,14 @@
     background-color: #218838;
   }
   
+  .reference{
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    bottom : 15px;
+    
+  }
+  .link{
+    padding-right: 10px;
+  }
