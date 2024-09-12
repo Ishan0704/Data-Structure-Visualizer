@@ -50,14 +50,11 @@ const LinkedList = () => {
     if (inputValue) {
       const res = list.searchByVal(inputValue);
       list.printList();
-      if(res===true)
-      {
-        alert("Value is found");
-      }
       console.log(res);
       setInputValue(''); // Clear the input after insertion
     }
   }
+
   const handleSearchByPosition=()=>{
     if (inputValue)
     {
@@ -73,6 +70,7 @@ const LinkedList = () => {
       setInputValue(''); 
     }
   }
+
   const handleUpdateAtPosition=()=>{
     if (inputValue) {
       const pos = window.prompt("Enter the position:");
