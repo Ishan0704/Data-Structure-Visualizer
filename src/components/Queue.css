@@ -1,0 +1,122 @@
+.frame1_queue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.frame1_queue input[type="number"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    /* margin-bottom: 1rem; */
+    width: 100%;
+    max-width: 100px;
+}
+
+.frame1_queue button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.frame1_queue button:hover {
+    background-color: #0056b3;
+}
+
+.Queue-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.Queue-display {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 5px 0;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.Queue-item {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px;
+    margin-right: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    min-width: 50px;
+    box-sizing: border-box;
+}
+
+.front-element {
+    font-size: 1.2em;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .frame1_queue {
+        padding: 0.8rem;
+        flex-direction: column;
+    }
+
+    .frame1_queue input[type="number"] {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+
+    .frame1_queue button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+        margin: 0.3rem;
+    }
+
+    .Queue-item {
+        font-size: 14px;
+        padding: 8px;
+        min-width: 40px;
+    }
+}
+
+@media (max-width: 400px) {
+    .frame1_queue {
+        padding: 0.6rem;
+        flex-direction: column;
+    }
+
+    .frame1_queue input[type="number"] {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+        max-width: 70%;
+    }
+
+    .frame1_queue button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        margin: 0.2rem;
+    }
+
+    .Queue-item {
+        font-size: 12px;
+        padding: 6px;
+        min-width: 30px;
+    }
+}
