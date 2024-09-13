@@ -61,6 +61,7 @@ class Linked {
       this.size++;
     }
   }
+  
   updateAtHead(data) {
     if (this.head === null) {
       return -1;
@@ -69,64 +70,77 @@ class Linked {
     }
   }
 
-  updateAtPos(data, pos) {
-    let cnt = 0;
-    if (pos < 0) {
-      console.log("Please Enter correct details");
-    } else if (pos === 0) {
-      this.updateAtHead(data);
-    } else if (pos > this.size) {
-      return;
-    } else {
-      let curr = this.head;
-      while (curr != null) {
-        cnt++;
-        if (cnt === pos - 1) {
-          curr.next.data = data;
-        }
-        curr = curr.next;
-      }
-    }
-  }
-  searchByVal(data) {
-    let cnt = 0;
-    let flag=0;
-    let curr = this.head;
-    while (curr !== null) {
-      cnt++;
-      if (curr.data === data) {
-        flag=1;
-        console.log("Found at index : ", cnt);
+  updateByValue(data,oldvalue) {
+    let curr=this.head;
+    let flag = 0;
+    while(curr !== null)
+    {
+      if(curr.data === oldvalue)
+      {
+        flag++;
+        curr.data = data;
       }
       curr = curr.next;
     }
-    if (flag===1)
+    if(flag === 0)
     {
-      return true;
+      alert("Entered Element not in list");
     }
   }
 
-  searchByPos(data) {
+  updateAtPos(data, pos) {
+    let cnt = 0;
+    if (pos < 0) {
+      console.log("Please Enter correct position");
+    } else if (pos === 0) {
+      this.updateAtHead(data);
+    } else if (pos > this.size) {
+      alert("Enter position in limited size")
+    } else {
+      let curr = this.head;
+      while (curr != null) {
+        if (cnt === pos ) {
+          curr.data = data;
+        }
+        curr = curr.next;
+        cnt++;
+      }
+    }
+  }
+
+  searchByVal(data) {
     let cnt = 0;
     let curr = this.head;
-    if (data>this.size)
-    {
-      return;
-    }
-    if (data===1)
-    {
-      console.log(curr.data);
-    }
     while (curr !== null) {
-      cnt++;
-      if (cnt === data - 1) {
-        console.log("Element present : ", curr.next.data);
-        // console.log("Found at index : ",cnt);
+      if (curr.data === data) {
+        console.log("Found at index : ", cnt);
       }
       curr = curr.next;
+      cnt++;
+    }
+    if(cnt === 0)
+    {
+      console.log("Element not found");
+    }
+  }
+
+  searchByPos(pos) {
+    if (pos < 0 || pos >= this.size) {
+      console.log("Please enter a valid position within the list boundaries.");
+      return;
     }
     
+    let curr = this.head;
+    let cnt = 0;
+  
+    while (cnt < pos) {
+      curr = curr.next;
+      cnt++;
+    }
+  
+    console.log(`Element at position ${pos}: `, curr.data);
   }
+
   deleteAtHead() {
     if (this.head === null) {
       console.log("The list is already empty.");
@@ -158,7 +172,7 @@ class Linked {
 
 deleteAtPos(pos) {
   if (pos < 0 || pos >= this.size) {
-    console.log("Please enter a correct position");
+    console.log("Please enter a valid position within the list boundaries.");
     return;
   }
 
