@@ -61,11 +61,30 @@ class Linked {
       this.size++;
     }
   }
+  
   updateAtHead(data) {
     if (this.head === null) {
       return -1;
     } else {
       this.head.data = data;
+    }
+  }
+
+  updateByValue(data,oldvalue) {
+    let curr=this.head;
+    let flag = 0;
+    while(curr !== null)
+    {
+      if(curr.data === oldvalue)
+      {
+        flag++;
+        curr.data = data;
+      }
+      curr = curr.next;
+    }
+    if(flag === 0)
+    {
+      alert("Entered Element not in list");
     }
   }
 

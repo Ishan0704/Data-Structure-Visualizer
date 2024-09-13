@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
-import './LinkedList.css';
+import React, { useState } from "react";
+import "./LinkedList.css";
 
-const Linked = require('../utils/Linked');
+const Linked = require("../utils/Linked");
 const list = new Linked();
 
 const LinkedList = () => {
   const [operation, setOperation] = useState(null);
-  const [inputValue, setInputValue] = useState('');
-
+  const [inputValue, setInputValue] = useState("");
+  // const [listItems, setListItems] = useState([]);
   const click_oper = (op) => {
     setOperation(op);
+  };
+
+  const listDisplay = () => {
+    const items = [];
+    let curr = list.head;
+    while (curr != null) {
+      items.push(curr.data);
+      curr = curr.next;
+    }
+    // setListItems(items);
   };
 
   const handleInsertAtHead = () => {
     if (inputValue) {
       list.insertAtHead(inputValue);
       list.printList();
-      setInputValue(''); // Clear the input after insertion
+      listDisplay();
+      setInputValue(""); // Clear the input after insertion
     }
   };
 
@@ -24,7 +35,8 @@ const LinkedList = () => {
     if (inputValue) {
       list.insertAtTail(inputValue);
       list.printList();
-      setInputValue(''); // Clear the input after insertion
+      listDisplay();
+      setInputValue(""); // Clear the input after insertion
     }
   };
 
@@ -36,7 +48,8 @@ const LinkedList = () => {
         if (position >= 0 && position <= list.getLength()) {
           list.insertAtPosition(inputValue, position);
           list.printList();
-          setInputValue(''); // Clear the input after insertion
+          listDisplay();
+          setInputValue(""); // Clear the input after insertion
         } else {
           alert("Please enter a valid position within the list boundaries.");
         }
@@ -44,34 +57,37 @@ const LinkedList = () => {
         alert("Please enter a valid position.");
       }
     }
-  };  
+  };
 
-  const handleSearchByValue = () =>{
+  const handleSearchByValue = () => {
     if (inputValue) {
       const res = list.searchByVal(inputValue);
       list.printList();
+      listDisplay();
+      if (res === true) {
+        alert("Value is found");
+      }
       console.log(res);
-      setInputValue(''); // Clear the input after insertion
+      setInputValue(""); // Clear the input after insertion
     }
-  }
-
-  const handleSearchByPosition=()=>{
-    if (inputValue)
-    {
+  };
+  const handleSearchByPosition = () => {
+    if (inputValue) {
       list.searchByPos(inputValue);
     }
-    setInputValue('');
-  }
+    setInputValue("");
+  };
 
-  const handleUpdateAtHead=()=>{
+  const handleUpdateByValue = () => {
     if (inputValue) {
-      list.updateAtHead(inputValue);
+      const oldvalue = window.prompt("Enter old value: ");
+      list.updateByValue(inputValue,oldvalue);
       list.printList();
-      setInputValue(''); 
+      listDisplay();
+      setInputValue("");
     }
-  }
-
-  const handleUpdateAtPosition=()=>{
+  };
+  const handleUpdateAtPosition = () => {
     if (inputValue) {
       const pos = window.prompt("Enter the position:");
       if (pos !== null && !isNaN(pos)) {
@@ -79,7 +95,8 @@ const LinkedList = () => {
         if (position >= 0 && position <= list.getLength()) {
           list.updateAtPos(inputValue, position);
           list.printList();
-          setInputValue(''); 
+          listDisplay();
+          setInputValue("");
         } else {
           alert("Please enter a valid position within the list boundaries.");
         }
@@ -87,29 +104,32 @@ const LinkedList = () => {
         alert("Please enter a valid position.");
       }
     }
-  }
+  };
 
-  const handleDeleteAtHead=()=>{
+  const handleDeleteAtHead = () => {
     list.deleteAtHead();
     list.printList();
-  }
+    listDisplay();
+  };
 
-  const handleDeleteAtTail=()=>{
+  const handleDeleteAtTail = () => {
     list.deleteAtTail();
     list.printList();
-  }
+    listDisplay();
+  };
 
-  const handleDeleteAtPos=()=>{
+  const handleDeleteAtPos = () => {
     const pos = window.prompt("Enter the position:");
     const position = parseInt(pos, 10);
     list.deleteAtPos(position);
     list.printList();
-  }
+    listDisplay();
+  };
   return (
     <>
       <div className="container1">
         <input
-          className='input-number'
+          className="input-number"
           type="number"
           placeholder="Enter the number"
           value={inputValue}
@@ -117,13 +137,21 @@ const LinkedList = () => {
         />
 
         <div className="operation_btn">
-          <button className="btn_click" onClick={() => click_oper('insert')}>Insert</button>
-          <button className="btn_click" onClick={() => click_oper('update')}>Update</button>
-          <button className="btn_click" onClick={() => click_oper('search')}>Search</button>
-          <button className="btn_click" onClick={() => click_oper('delete')}>Delete</button>
+          <button className="btn_click" onClick={() => click_oper("insert")}>
+            Insert
+          </button>
+          <button className="btn_click" onClick={() => click_oper("update")}>
+            Update
+          </button>
+          <button className="btn_click" onClick={() => click_oper("search")}>
+            Search
+          </button>
+          <button className="btn_click" onClick={() => click_oper("delete")}>
+            Delete
+          </button>
         </div>
 
-        {operation === 'insert' && (
+        {operation === "insert" && (
           <div className="operation_open">
             <button onClick={handleInsertAtHead}>At Head</button>
             <button onClick={handleInsertAtTail}>At Tail</button>
@@ -131,14 +159,14 @@ const LinkedList = () => {
           </div>
         )}
 
-        {operation === 'update' && (
+        {operation === "update" && (
           <div className="operation_open">
-            <button onClick={handleUpdateAtHead}>At Head</button>
-            <button onClick={handleUpdateAtPosition}>At Position</button>
+            <button onClick={handleUpdateByValue}>By Value</button>
+            <button onClick={handleUpdateAtPosition}>At Index</button>
           </div>
         )}
 
-        {operation === 'delete' && (
+        {operation === "delete" && (
           <div className="operation_open">
             <button onClick={handleDeleteAtHead}>At Head</button>
             <button onClick={handleDeleteAtTail}>At Tail</button>
@@ -146,17 +174,33 @@ const LinkedList = () => {
           </div>
         )}
 
-        {operation === 'search' && (
+        {operation === "search" && (
           <div className="operation_open">
-            <button onClick={handleSearchByValue} >By Value</button>
+            <button onClick={handleSearchByValue}>By Value</button>
             <button onClick={handleSearchByPosition}>By Index</button>
           </div>
         )}
       </div>
 
-      <div className='reference'>
-        For more details visit - 
-        <a className='link' href="https://www.geeksforgeeks.org/linked-list-data-structure/" target='_blank' rel='noopener noreferrer'>
+      {/* <div className="linkedDisplay">
+        <h1>Linked list:</h1>
+        <div className="list">
+          <div>
+            {listItems.map((item, index) => (
+              <div key={index}>{item}</div>
+            ))}
+          </div>
+        </div>
+      </div> */}
+
+      <div className="reference">
+        For more details visit -
+        <a
+          className="link"
+          href="https://www.geeksforgeeks.org/linked-list-data-structure/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           https://www.geeksforgeeks.org/linked-list-data-structure
         </a>
       </div>
