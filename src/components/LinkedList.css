@@ -14,6 +14,89 @@
   border-radius: 4px;
 }
 
+
+/* Overlay background to cover the screen */
+.popup_message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease-in-out; /* Fade-in effect */
+}
+
+/* Show overlay when visible */
+.popup_message.visible {
+  opacity: 1;
+}
+
+.popup-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation */
+  transform: translateY(-20px); /* Start above the viewport */
+  opacity: 0; /* Start invisible */
+}
+
+/* Show container when visible */
+.popup-container.visible {
+  transform: translateY(0); /* Move to original position */
+  opacity: 1; /* Make visible */
+}
+
+.input-number {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+#submit {
+  background-color: #007bff;
+  color: white;
+}
+
+#submit:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#close {
+  background-color: #6c757d;
+  color: white;
+}
+
+#close:hover {
+  background-color: #5a6268;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+
 .operation_btn {
   display: flex;
   justify-content: space-between;
@@ -62,21 +145,46 @@
 }
 
 .linkedDisplay {
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  margin-bottom: 10px;
 }
 
 .list {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  position: relative;
 }
 
-.list > div {
-  margin-right: 10px;
-  padding: 10px;
+.node {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  flex: 0 0 auto;
+}
+
+.item-box {
   background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  font-size: 24px;
+  color: #007bff;
+  margin-left: 10px;
+  line-height: 1.3;
 }
 
 

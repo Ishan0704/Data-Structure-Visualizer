@@ -61,7 +61,7 @@ class Linked {
       this.size++;
     }
   }
-  
+
   updateAtHead(data) {
     if (this.head === null) {
       return -1;
@@ -70,20 +70,17 @@ class Linked {
     }
   }
 
-  updateByValue(data,oldvalue) {
-    let curr=this.head;
+  updateByValue(data, oldvalue) {
+    let curr = this.head;
     let flag = 0;
-    while(curr !== null)
-    {
-      if(curr.data === oldvalue)
-      {
+    while (curr !== null) {
+      if (curr.data === oldvalue) {
         flag++;
         curr.data = data;
       }
       curr = curr.next;
     }
-    if(flag === 0)
-    {
+    if (flag === 0) {
       alert("Entered Element not in list");
     }
   }
@@ -95,11 +92,11 @@ class Linked {
     } else if (pos === 0) {
       this.updateAtHead(data);
     } else if (pos > this.size) {
-      alert("Enter position in limited size")
+      alert("Enter position in limited size");
     } else {
       let curr = this.head;
       while (curr != null) {
-        if (cnt === pos ) {
+        if (cnt === pos) {
           curr.data = data;
         }
         curr = curr.next;
@@ -110,40 +107,44 @@ class Linked {
 
   searchByVal(data) {
     let cnt = 0;
+    let flag = 0;
     let curr = this.head;
     while (curr !== null) {
       if (curr.data === data) {
-        console.log("Found at index : ", cnt);
+        flag = 1;
+        alert("Element Found Successfully");
       }
       curr = curr.next;
       cnt++;
     }
-    if(cnt === 0)
-    {
-      console.log("Element not found");
+    if (flag === 0) {
+      alert("Not found");
+    }
+    if (cnt === 0) {
+      alert("Element not found");
     }
   }
 
   searchByPos(pos) {
     if (pos < 0 || pos >= this.size) {
-      console.log("Please enter a valid position within the list boundaries.");
+      alert("Please enter a valid position within the list boundaries.");
       return;
     }
-    
+
     let curr = this.head;
     let cnt = 0;
-  
+
     while (cnt < pos) {
       curr = curr.next;
       cnt++;
     }
-  
-    console.log(`Element at position ${pos}: `, curr.data);
+    let a = curr.data;
+    alert(`Element at position ${pos}:  ${a}`);
   }
 
   deleteAtHead() {
     if (this.head === null) {
-      console.log("The list is already empty.");
+      alert("The list is empty.");
       return;
     }
     this.head = this.head.next;
@@ -152,61 +153,59 @@ class Linked {
 
   deleteAtTail() {
     if (this.head === null) {
-        console.log("The list is empty.");
-        return;
+      alert("The list is empty.");
+      return;
     }
 
     if (this.head.next === null) {
-        this.head = null;
+      this.head = null;
     } else {
-        let curr = this.head;
-        let prev = null;
-        while (curr.next !== null) {
-            prev = curr;
-            curr = curr.next;
-        }
-        prev.next = null; 
+      let curr = this.head;
+      let prev = null;
+      while (curr.next !== null) {
+        prev = curr;
+        curr = curr.next;
+      }
+      prev.next = null;
     }
-    this.size--; 
-}
-
-deleteAtPos(pos) {
-  if (pos < 0 || pos >= this.size) {
-    console.log("Please enter a valid position within the list boundaries.");
-    return;
+    this.size--;
   }
 
-  // delete at head
-  if (pos === 0) {
-    this.deleteAtHead();
-    return;
+  deleteAtPos(pos) {
+    if (pos < 0 || pos >= this.size) {
+      alert("Please enter a valid position within the list boundaries.");
+      return;
+    }
+
+    // delete at head
+    if (pos === 0) {
+      this.deleteAtHead();
+      return;
+    }
+
+    // delete at tail
+    if (pos === this.size - 1) {
+      this.deleteAtTail();
+      return;
+    }
+
+    // delete at any other position
+    let curr = this.head;
+    let prev = null;
+    let cnt = 0;
+
+    while (curr !== null && cnt < pos) {
+      prev = curr;
+      curr = curr.next;
+      cnt++;
+    }
+
+    if (curr !== null) {
+      prev.next = curr.next;
+      curr.next = null;
+      this.size--;
+    }
   }
-
-  // delete at tail
-  if (pos === this.size - 1) {
-    this.deleteAtTail();
-    return;
-  }
-
-  // delete at any other position
-  let curr = this.head;
-  let prev = null;
-  let cnt = 0;
-
-  while (curr !== null && cnt < pos) {
-    prev = curr;
-    curr = curr.next;
-    cnt++;
-  }
-
-  if (curr !== null) {
-    prev.next = curr.next;
-    curr.next = null; 
-    this.size--; 
-  }
-}
-
-
 
   printList() {
     let curr = this.head;
