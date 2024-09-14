@@ -5,129 +5,231 @@ const Linked = require("../utils/Linked");
 const list = new Linked();
 
 const LinkedList = () => {
-  const [operation, setOperation] = useState(null);
-  const [inputValue, setInputValue] = useState("");
-  // const [listItems, setListItems] = useState([]);
-  const click_oper = (op) => {
-    setOperation(op);
-  };
+const [operation, setOperation] = useState(null);
+const [inputValue, setInputValue] = useState("");
+const [listItems, setListItems] = useState([]);
+const [visiblePopup, setVisiblePopup] = useState(false);
 
-  const listDisplay = () => {
-    const items = [];
-    let curr = list.head;
-    while (curr != null) {
-      items.push(curr.data);
-      curr = curr.next;
-    }
-    // setListItems(items);
-  };
+const click_oper = (op) => {
+  setOperation(op);
+};
+const listDisplay = () => {
+  const items = [];
+  let curr = list.head;
+  while (curr != null) {
+    items.push(curr.data);
+    curr = curr.next;
+  }
+  setListItems(items);
+};
 
-  const handleInsertAtHead = () => {
-    if (inputValue) {
-      list.insertAtHead(inputValue);
-      list.printList();
-      listDisplay();
-      setInputValue(""); // Clear the input after insertion
-    }
-  };
+const handleDeleteAtHead = () => {
+  list.deleteAtHead();
+  list.printList();
+  listDisplay();
+};
 
-  const handleInsertAtTail = () => {
-    if (inputValue) {
-      list.insertAtTail(inputValue);
-      list.printList();
-      listDisplay();
-      setInputValue(""); // Clear the input after insertion
-    }
-  };
+const handleDeleteAtTail = () => {
+  list.deleteAtTail();
+  list.printList();
+  listDisplay();
+};
 
-  const handleInsertAtPosition = () => {
-    if (inputValue) {
-      const pos = window.prompt("Enter the position:");
-      if (pos !== null && !isNaN(pos)) {
-        const position = parseInt(pos, 10);
-        if (position >= 0 && position <= list.getLength()) {
-          list.insertAtPosition(inputValue, position);
-          list.printList();
-          listDisplay();
-          setInputValue(""); // Clear the input after insertion
+const handleDeleteAtPos = () => {
+  const pos = window.prompt("Enter the position:");
+  const position = parseInt(pos, 10);
+  list.deleteAtPos(position);
+  list.printList();
+  listDisplay();
+};
+const popUpsubmit = () => {
+  if (inputValue) {
+    switch (operation) {
+      case "insertAtHead":
+        list.insertAtHead(inputValue);
+        break;
+
+      case "insertAtTail":
+        list.insertAtTail(inputValue);
+        break;
+
+      case "insertAtPosition":
+        const pos = window.prompt("Enter the position:");
+        if (pos !== null && !isNaN(pos)) {
+          const position = parseInt(pos, 10);
+          if (position >= 0 && position <= list.getLength()) {
+            list.insertAtPosition(inputValue, position);
+          } else {
+            alert(
+              "Please enter a valid position within the list boundaries."
+            );
+          }
         } else {
-          alert("Please enter a valid position within the list boundaries.");
+          alert("Please enter a valid position.");
         }
-      } else {
-        alert("Please enter a valid position.");
-      }
-    }
-  };
+        break;
 
-  const handleSearchByValue = () => {
-    if (inputValue) {
-      const res = list.searchByVal(inputValue);
-      list.printList();
-      listDisplay();
-      if (res === true) {
-        alert("Value is found");
-      }
-      console.log(res);
-      setInputValue(""); // Clear the input after insertion
+      case "searchByValue":
+        list.searchByVal(inputValue);
+        
+        break;
+
+      case "searchByPosition":
+        list.searchByPos(inputValue);
+        break;
+
+      case "updateByValue":
+        const oldValue = window.prompt("Enter old value: ");
+        list.updateByValue(inputValue, oldValue);
+        break;
+
+      case "updateAtPosition":
+        const updatePos = window.prompt("Enter the position:");
+        if (updatePos !== null && !isNaN(updatePos)) {
+          const position = parseInt(updatePos, 10);
+          if (position >= 0 && position <= list.getLength()) {
+            list.updateAtPos(inputValue, position);
+          } else {
+            alert(
+              "Please enter a valid position within the list boundaries."
+            );
+          }
+        } else {
+          alert("Please enter a valid position.");
+        }
+        break;
+
+      default:
+        break;
     }
-  };
-  const handleSearchByPosition = () => {
-    if (inputValue) {
-      list.searchByPos(inputValue);
-    }
+    listDisplay();
+    setVisiblePopup(false);
     setInputValue("");
-  };
+  } else {
+    alert("Please enter a value.");
+  }
+};
 
-  const handleUpdateByValue = () => {
-    if (inputValue) {
-      const oldvalue = window.prompt("Enter old value: ");
-      list.updateByValue(inputValue,oldvalue);
-      list.printList();
-      listDisplay();
-      setInputValue("");
-    }
-  };
-  const handleUpdateAtPosition = () => {
-    if (inputValue) {
-      const pos = window.prompt("Enter the position:");
-      if (pos !== null && !isNaN(pos)) {
-        const position = parseInt(pos, 10);
-        if (position >= 0 && position <= list.getLength()) {
-          list.updateAtPos(inputValue, position);
-          list.printList();
-          listDisplay();
-          setInputValue("");
-        } else {
-          alert("Please enter a valid position within the list boundaries.");
-        }
-      } else {
-        alert("Please enter a valid position.");
-      }
-    }
-  };
+const popUpclose = () => {
+  setVisiblePopup(false);
+  setInputValue("");
+};
 
-  const handleDeleteAtHead = () => {
-    list.deleteAtHead();
-    list.printList();
-    listDisplay();
-  };
+return (
+  <>
+    <div className="container1">
+      <div className="operation_btn">
+        <button className="btn_click" onClick={() => click_oper("insert")}>
+          Insert
+        </button>
+        <button className="btn_click" onClick={() => click_oper("update")}>
+          Update
+        </button>
+        <button className="btn_click" onClick={() => click_oper("search")}>
+          Search
+        </button>
+        <button className="btn_click" onClick={() => click_oper("delete")}>
+          Delete
+        </button>
+      </div>
 
-  const handleDeleteAtTail = () => {
-    list.deleteAtTail();
-    list.printList();
-    listDisplay();
-  };
+      {operation === "insert" && (
+        <div className="operation_open">
+          <button
+            onClick={() => {
+              setOperation("insertAtHead");
+              setVisiblePopup(true);
+            }}
+          >
+            At Head
+          </button>
+          <button
+            onClick={() => {
+              setOperation("insertAtTail");
+              setVisiblePopup(true);
+            }}
+          >
+            At Tail
+          </button>
+          <button
+            onClick={() => {
+              setOperation("insertAtPosition");
+              setVisiblePopup(true);
+            }}
+          >
+            At Position
+          </button>
+        </div>
+      )}
 
-  const handleDeleteAtPos = () => {
-    const pos = window.prompt("Enter the position:");
-    const position = parseInt(pos, 10);
-    list.deleteAtPos(position);
-    list.printList();
-    listDisplay();
-  };
-  return (
-    <>
-      <div className="container1">
+      {operation === "update" && (
+        <div className="operation_open">
+          <button
+            onClick={() => {
+              setOperation("updateByValue");
+              setVisiblePopup(true);
+            }}
+          >
+            By Value
+          </button>
+          <button
+            onClick={() => {
+              setOperation("updateAtPosition");
+              setVisiblePopup(true);
+            }}
+          >
+            At Index
+          </button>
+        </div>
+      )}
+
+      {operation === "delete" && (
+        <div className="operation_open">
+          <button onClick={handleDeleteAtHead}>At Head</button>
+          <button onClick={handleDeleteAtTail}>At Tail</button>
+          <button onClick={handleDeleteAtPos}>At Position</button>
+        </div>
+      )}
+
+      {operation === "search" && (
+        <div className="operation_open">
+          <button
+            onClick={() => {
+              setOperation("searchByValue");
+              setVisiblePopup(true);
+            }}
+          >
+            By Value
+          </button>
+          <button
+            onClick={() => {
+              setOperation("searchByPosition");
+              setVisiblePopup(true);
+            }}
+          >
+            By Index
+          </button>
+        </div>
+      )}
+    </div>
+
+    <div className="linkedDisplay">
+      <h1>Linked list:</h1>
+      <div className="list">
+        {listItems.map((item, index) => (
+          <div key={index} className="node">
+            <div className="item-box">
+              <div className="item">{item}</div>
+            </div>
+            {index < listItems.length - 1 && <div className="arrow">→</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {visiblePopup && (
+      <div className="popup_message visible">
+      <div className="popup-container visible">
         <input
           className="input-number"
           type="number"
@@ -135,64 +237,17 @@ const LinkedList = () => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-
-        <div className="operation_btn">
-          <button className="btn_click" onClick={() => click_oper("insert")}>
-            Insert
-          </button>
-          <button className="btn_click" onClick={() => click_oper("update")}>
-            Update
-          </button>
-          <button className="btn_click" onClick={() => click_oper("search")}>
-            Search
-          </button>
-          <button className="btn_click" onClick={() => click_oper("delete")}>
-            Delete
-          </button>
-        </div>
-
-        {operation === "insert" && (
-          <div className="operation_open">
-            <button onClick={handleInsertAtHead}>At Head</button>
-            <button onClick={handleInsertAtTail}>At Tail</button>
-            <button onClick={handleInsertAtPosition}>At Position</button>
-          </div>
-        )}
-
-        {operation === "update" && (
-          <div className="operation_open">
-            <button onClick={handleUpdateByValue}>By Value</button>
-            <button onClick={handleUpdateAtPosition}>At Index</button>
-          </div>
-        )}
-
-        {operation === "delete" && (
-          <div className="operation_open">
-            <button onClick={handleDeleteAtHead}>At Head</button>
-            <button onClick={handleDeleteAtTail}>At Tail</button>
-            <button onClick={handleDeleteAtPos}>At Position</button>
-          </div>
-        )}
-
-        {operation === "search" && (
-          <div className="operation_open">
-            <button onClick={handleSearchByValue}>By Value</button>
-            <button onClick={handleSearchByPosition}>By Index</button>
-          </div>
-        )}
+        <button id="submit" onClick={popUpsubmit}>
+          Submit
+        </button>
+        <button id="close" onClick={popUpclose}>
+          Close
+        </button>
       </div>
+    </div>
+    )}
 
-      {/* <div className="linkedDisplay">
-        <h1>Linked list:</h1>
-        <div className="list">
-          <div>
-            {listItems.map((item, index) => (
-              <div key={index}>{item}</div>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
+    <footer>
       <div className="reference">
         For more details visit -
         <a
@@ -204,8 +259,9 @@ const LinkedList = () => {
           https://www.geeksforgeeks.org/linked-list-data-structure
         </a>
       </div>
-    </>
-  );
+    </footer>
+  </>
+);
 };
 
 export default LinkedList;

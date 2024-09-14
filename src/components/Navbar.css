@@ -4,14 +4,14 @@ nav {
   border-radius: 1rem;
 }
 
-.container {
+.container_nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
-.frame1 {
+.frame_nav {
   display: flex;
   align-items: center;
 }
@@ -23,20 +23,29 @@ nav {
   margin-right: 10px;
 }
 
-.frame2 {
+.frame2_nav {
   display: flex;
   align-items: center;
   margin-right: 1.5rem;
 }
 
-.frame2 ul {
+.frame2_nav ul {
   list-style-type: none;
   margin: 0 10px;
   padding: 0;
   color: white;
   cursor: pointer;
+  
 }
 
+.linkTag{
+  text-decoration: none;
+  color:white;
+}
+
+.linkTag:hover{
+  color:yellow;
+}
 .frame2 ul:hover {
   color: black;
 }
