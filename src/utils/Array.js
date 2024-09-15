@@ -10,11 +10,15 @@ class Array {
 
     // Update an element
     update(oldValue, newValue) {
-        const index = this.list.indexOf(oldValue);
-        if (index !== -1) {
-            this.list[index] = newValue;
-        } else {
-            console.log("Element not found");
+        let update = false;
+        for (let i = 0; i < this.list.length; i++) {
+            if (this.list[i] === oldValue) {
+                this.list[i] = newValue;
+                update = true;
+            }
+        }
+        if (!update) {
+            alert("Element not found in the list");
         }
     }
 
@@ -32,7 +36,6 @@ class Array {
             alert("Element not present");
         }
     }
-    
 
     // Delete an element
     delete(value) {
