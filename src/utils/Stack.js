@@ -2,12 +2,12 @@ class Stack {
     constructor(maxSize) {
         this.items = [];
         this.size = 0;
-        this.maxSize = maxSize || Infinity; 
+        this.maxSize = maxSize || 10; 
     }
 
     push(ele) {
         if (this.isfull()) {
-            console.log("Stack overflow");
+            alert("Stack overflow !! Stack is full ");
             return;
         }
         this.items.push(ele);
@@ -16,7 +16,7 @@ class Stack {
 
     pop() {
         if (this.isempty()) {
-            console.log("Stack is empty");
+            alert("Stack Underflow !! Stack is empty");
             return;
         }
         let a = this.items.pop();
@@ -24,12 +24,34 @@ class Stack {
         this.size--;
     }
 
+    display() {
+        if (this.isempty()) {
+            console.log("Stack is empty");
+            return;
+        }
+        for (let i = 0; i < this.size; i++) {
+            console.log(`Element at index ${i}: ${this.items[i]}`);
+        }
+    }
+
+    getStack()
+    {
+        return this.items;
+    }
+    top() {
+        if (this.isempty()) {
+            console.log("Stack is empty");
+            return;
+        }
+        return this.items[this.size-1];
+    }
+
     isempty() {
-        return this.size === 0;
+        return this.size === 0; 
     }
 
     isfull() {
-        return this.size >= this.maxSize;
+        return this.size >= this.maxSize; 
     }
 }
 

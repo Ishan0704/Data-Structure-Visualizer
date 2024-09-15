@@ -1,61 +1,77 @@
-import './Stack.css';
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./Stack.css";
 
-function Stack() {
-    const [number, setNumber] = useState('');
-    const [stack, setStack] = useState([]);
+const Stack = require('../utils/Stack');
 
-    const pushStack = () => {
-        if (number === '' || stack.length > 5) return;
-        
-        setStack(stack => [...stack, number]);
-        console.log('Pushed:', number);
-        setNumber('');
-    };
+const StackComponent = () => {
+    const [isSizeEntered, setIsSizeEntered] = useState(false);
+    const [list, setList] = useState(null);
+    const [elements, setElements] = useState([]);
 
-    const popStack = () => {
-        if (stack.length === 0) return;
+    const input = () => {
+        let data = prompt("Enter Size of Stack");
+        const size = Number(data);
 
-        setStack(stack => stack.slice(0, -1));
-        console.log('Popped:', stack[stack.length - 1]);
-    };
+        if (size > 10) {
+            alert("Enter size less than or equal to 10");
+            input();
+        } else if (size <= 0 || isNaN(size)) {
+            alert("Enter size greater than 0");
+            input();
+        } else {
+            const newStack = new Stack(size);
+            setList(newStack);
+            setIsSizeEntered(true);
+            setElements(newStack.getStack()); 
+        }
+    }
 
-    let displayContent;
+    const handlePush = () => {
+        if (list) {
+            const data = prompt("Enter Element of Stack");
+            list.push(data);
+            setElements([...list.getStack()]); 
+        }
+    }
 
-    if (stack.length === 0) {
-        displayContent = <div className="message" style={{textAlign:"center"}}>Stack is empty</div>;
-    } else if (stack.length > 5) {
-        displayContent = <div className="message" style={{textAlign:"center"}}>Stack is full</div>;
-    } else {
-        displayContent = (
-            <div className="stack-display">
-                {stack.map((item, index) => (
-                    <div key={index} className="stack-item">
-                        {item}
-                    </div>
-                ))}
-            </div>
-        );
+    const handlePop = () => {
+        if (list) {
+            list.pop();
+            setElements([...list.getStack()]); 
+        }
+    }
+
+    const displayTop = () => {
+        if (list) {
+            alert(`Top element is: ${list.top()}`);
+        }
     }
 
     return (
         <>
-            <div className="frame1">
-                <input
-                    type="number"
-                    placeholder="Number"
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}
-                />
-                <button onClick={pushStack}>Push</button>
-                <button style={{ backgroundColor: 'red' }} onClick={popStack}>Pop</button>
-            </div>
-            <div className="stack-box">
-                <h2 style={{textAlign:"center"}}>Stack:</h2>
-                {displayContent}
-            </div>
+            {!isSizeEntered ? (
+                <button onClick={input}>Enter Max Size of Stack</button>
+            ) : (
+                <>
+                    <button className="operations" onClick={handlePush}>Push</button>
+                    <button className="operations" onClick={handlePop}>Pop</button>
+                    <button className="operations" onClick={displayTop}>Top</button>
+                    <div>
+                        <h3>Stack Elements:</h3>
+                        <ul>
+                            {elements.length > 0 ? (
+                                elements.map((el, index) => (
+                                    <li key={index}>{el}</li>
+                                ))
+                            ) : (
+                                <li>The stack is empty.</li>
+                            )}
+                        </ul>
+                    </div>
+                </>
+            )}
         </>
     );
 }
 
-export default Stack;
+export default StackComponent;

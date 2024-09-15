@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
 import Stack from "./components/Stack.jsx";
-import Queue from "./components/Queue1.jsx";
+import Queue from "./components/Queue.jsx";
 import LinkedList from "./components/LinkedList.jsx";
+import Array from "./components/Array.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/stack" element={<Stack/>}/>
           <Route path="/queue" element={<Queue/>}/>
           <Route path="/linkedlist" element={<LinkedList />} />
+          <Route path="/array" element={<Array />} />
         </Routes>
       </Router>
     </div>

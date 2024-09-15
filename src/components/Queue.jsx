@@ -1,70 +1,84 @@
+import React, { useState, useEffect } from 'react';
 import './Queue.css';
-import React, { useState } from 'react';
+const Queue = require("../utils/Queue");
 
-function Queue() {
-    const [number, setNumber] = useState('');
-    const [queue, setQueue] = useState([]);
-    const [frontElement, setFrontElement] = useState(null);
+const Queuefunc = () => {
+    const [maxSize, setMaxSize] = useState(null);
+    const [queue, setQueue] = useState(null);
+    const [elements, setElements] = useState([]);
 
-    const pushQueue = () => {
-        if (number === '' || queue.length >= 5) return;
-        
-        const updatedQueue = [...queue, number];
-        setQueue(updatedQueue);
-        setNumber('');
-        setFrontElement(updatedQueue[0] || null);
+    useEffect(() => {
+        if (maxSize !== null) {
+            const newQueue = new Queue(maxSize);
+            setQueue(newQueue);
+            setElements(newQueue.getElements());
+        }
+    }, [maxSize]);
+
+    const initializeQueue = () => {
+        const size = prompt("Enter the maximum size of the queue:");
+        if (size != null && !isNaN(size) && size > 0 && size<=10) {
+            setMaxSize(Number(size));
+        } else {
+            alert("Please enter a value between 1 to 10");
+        }
     };
 
-    const popQueue = () => {
-        if (queue.length === 0) return;
-
-        const [removedElement, ...rest] = queue;
-        setQueue(rest);
-        setFrontElement(rest[0] || null);
-        console.log('Popped:', removedElement);
+    const enqueue = () => {
+        if (queue) {
+            const a = prompt("Enter the number ");
+            if (a != null && !isNaN(a)) {
+                queue.push_from_rear(Number(a));
+                updateElements(); 
+            } else {
+                alert("Please enter valid input");
+            }
+        }
     };
 
-    let displayContent;
+    const dequeue = () => {
+        if (queue) {
+            queue.pop_from_front();
+            updateElements(); 
+        }
+    };
 
-    if (queue.length === 0) {
-        displayContent = <div className="message" style={{textAlign: "center"}}>Queue is empty</div>;
-    } else if (queue.length >= 5) {
-        displayContent = <div className="message" style={{textAlign: "center"}}>Queue is full</div>;
-    } else {
-        displayContent = (
-            <div className="queue-display">
-                {queue.map((item, index) => (
-                    <div key={index} className="queue-item">
-                        {item}
-                    </div>
-                ))}
-            </div>
-        );
-    }
+    const frontEle = () => {
+        if (queue) {
+            const front = queue.front_ele();
+            alert(`Front Element: ${front}`);
+        }
+    };
+
+    const updateElements = () => {
+        if (queue) {
+            setElements(queue.getElements()); 
+        }
+    };
 
     return (
-        <>
-            <div className="frame1_queue">
-                <input
-                    type="number"
-                    placeholder="Number"
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}
-                />
-                <button onClick={pushQueue}>Push</button>
-                <button style={{ backgroundColor: 'red' }} onClick={popQueue}>Pop</button>
-            </div>
-            <div className="queue-box">
-                <h2 style={{textAlign: "center"}}>Queue:</h2>
-                {displayContent}
-                {frontElement !== null && (
-                    <div className="front-element" style={{textAlign: "center", marginTop: "10px"}}>
-                        <strong>Front Element:</strong> {frontElement}
+        <div className="queue_container">
+            {maxSize === null ? (
+                <button onClick={initializeQueue}>Enter Max Size</button>
+            ) : (
+                <>
+                <div className="btn">
+                    <button onClick={enqueue}>Enqueue</button>
+                    <button onClick={dequeue}>Dequeue</button>
+                    <button onClick={frontEle}>Front Element</button>
                     </div>
-                )}
-            </div>
-        </>
+                    <div >
+                        <h3>Queue Elements:</h3>
+                        <div className="display-elements">
+                            {elements.map((element, index) => (
+                                <div key={index}>{element}</div>
+                            ))}
+                        </div>
+                    </div>
+                </>
+            )}
+        </div>
     );
-}
+};
 
-export default Queue;
+export default Queuefunc;
