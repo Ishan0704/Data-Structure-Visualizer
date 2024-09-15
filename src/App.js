@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
 import Stack from "./components/Stack.jsx";
-import Queue from "./components/Queue.jsx";
+import Queue from "./components/Queue1.jsx";
 import LinkedList from "./components/LinkedList.jsx";
 
 function App() {
