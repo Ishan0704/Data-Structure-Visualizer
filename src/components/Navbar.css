@@ -1,51 +1,119 @@
 nav {
-  background-color: rgba(94, 105, 114, 0.795);
-  padding: 3px;
-  border-radius: 1rem;
+background-color: rgba(94, 105, 114, 0.795);
+padding: 0.3rem;
+border-radius: 1rem;
+position: relative;
+z-index: 1000;
 }
 
 .container_nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+max-width: 75rem;
+margin: 0 auto;
 }
 
 .frame_nav {
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
 }
 
 #image1 {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 50%;
+margin-right: 0.625rem;
 }
 
 .frame2_nav {
-  display: flex;
-  align-items: center;
-  margin-right: 1.5rem;
+display: flex;
+align-items: center;
+margin-right: 1.5rem;
 }
 
 .frame2_nav ul {
-  list-style-type: none;
-  margin: 0 10px;
-  padding: 0;
+list-style-type: none;
+margin: 0 0.625rem;
+padding: 0;
+color: white;
+cursor: pointer;
+}
+
+.linkTag {
+text-decoration: none;
+color: white;
+}
+
+.linkTag:hover {
+color: yellow;
+}
+
+.frame2_nav ul:hover {
+color: black;
+}
+
+.mobile_container {
+display: none;
+}
+
+@media (max-width: 37.5rem) {
+nav {
+  display: none;
+}
+
+.mobile_container {
+  display: block;
+}
+
+.menu-button {
+  background-color: #032b55;
   color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
   cursor: pointer;
-  
+  font-size: 1.5rem;
 }
 
-.linkTag{
+.menu-button :hover {
+  background-color: #154a4b;
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+}
+
+.navbar_mobile {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  background-color: rgba(94, 105, 114, 0.795);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding-top: 0.5rem;
+}
+
+.navbar_mobile ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkTag2 {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: black;
+  color: white;
+  text-align: center;
   text-decoration: none;
-  color:white;
 }
 
-.linkTag:hover{
-  color:yellow;
+.linkTag2:hover {
+  background-color: darkgray;
 }
-.frame2 ul:hover {
-  color: black;
 }

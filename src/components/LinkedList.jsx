@@ -47,10 +47,12 @@ const popUpsubmit = () => {
     switch (operation) {
       case "insertAtHead":
         list.insertAtHead(inputValue);
+        alert("Number inserted successfully");
         break;
 
       case "insertAtTail":
         list.insertAtTail(inputValue);
+        alert("Number inserted successfully");
         break;
 
       case "insertAtPosition":
@@ -59,6 +61,7 @@ const popUpsubmit = () => {
           const position = parseInt(pos, 10);
           if (position >= 0 && position <= list.getLength()) {
             list.insertAtPosition(inputValue, position);
+            alert("Number inserted successfully");
           } else {
             alert(
               "Please enter a valid position within the list boundaries."
@@ -71,7 +74,6 @@ const popUpsubmit = () => {
 
       case "searchByValue":
         list.searchByVal(inputValue);
-        
         break;
 
       case "searchByPosition":
