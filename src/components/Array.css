@@ -1,0 +1,84 @@
+/* Container styling */
+.array-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* Input group styling */
+.input-group {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Input fields styling */
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Array display styling */
+.array-display {
+    margin-top: 20px;
+}
+
+.array-visual {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.array-item {
+    padding: 10px;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    width: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.array-item:hover {
+    background-color: #e9f7ff;
+    transform: scale(1.05);
+}

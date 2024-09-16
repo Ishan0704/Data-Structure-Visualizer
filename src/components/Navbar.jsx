@@ -15,7 +15,7 @@ function Navbar() {
           <ul><Link className="linkTag" to="/stack">Stack</Link></ul>
           <ul><Link className="linkTag" to="/queue">Queue</Link></ul>
           <ul><Link className="linkTag" to="/linkedlist">Linked List</Link></ul>
-          <ul><Link className="linkTag" to="/">HashMap</Link></ul>
+          <ul><Link className="linkTag" to="/array">Array</Link></ul>
         </div>
       </div>
     </nav>
