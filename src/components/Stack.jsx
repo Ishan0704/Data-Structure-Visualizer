@@ -29,13 +29,13 @@ const StackComponent = () => {
     const handlePush = () => {
         if (list) {
             const data = prompt("Enter Element of Stack");
-            if(data === null)
+            if (data != null && !isNaN(data)) 
             {
-                alert("Element cannot be null");
-                return;
+                list.push(data);
+                setElements([...list.getStack()]); 
+            } else {
+                alert("Please enter valid input");
             }
-            list.push(data);
-            setElements([...list.getStack()]); 
         }
     }
 
