@@ -1,4 +1,5 @@
 import './Home.css';
+import LinkedListData from './LinkedListData';
 function Home()
 {
     return (
@@ -14,8 +15,8 @@ function Home()
             </div>
 
             <div className="frame2_home">
-                <h2>Linked List</h2>
-                <p>A linked list is a linear data structure where each element points to the next, allowing efficient insertion and deletion operations.</p>
+                {/* <h2>Linked List</h2> */}
+                <LinkedListData/>
             </div>
             <div className="frame2_home">
                 <h2>Stack</h2>
