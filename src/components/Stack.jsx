@@ -29,8 +29,13 @@ const StackComponent = () => {
     const handlePush = () => {
         if (list) {
             const data = prompt("Enter Element of Stack");
-            list.push(data);
-            setElements([...list.getStack()]); 
+            if (data != null && !isNaN(data)) 
+            {
+                list.push(data);
+                setElements([...list.getStack()]); 
+            } else {
+                alert("Please enter valid input");
+            }
         }
     }
 
@@ -50,23 +55,23 @@ const StackComponent = () => {
     return (
         <>
             {!isSizeEntered ? (
-                <button onClick={input}>Enter Max Size of Stack</button>
+                <button className="size" onClick={input}>Enter Max Size of Stack</button>
             ) : (
                 <>
                     <button className="operations" onClick={handlePush}>Push</button>
                     <button className="operations" onClick={handlePop}>Pop</button>
                     <button className="operations" onClick={displayTop}>Top</button>
-                    <div>
-                        <h3>Stack Elements:</h3>
-                        <ul>
+                    <h3>Stack Elements:</h3>
+                    <div className="container">
+                        <div className="container-elements">
                             {elements.length > 0 ? (
                                 elements.map((el, index) => (
-                                    <li key={index}>{el}</li>
+                                    <div className="elements" key={index}>{el}</div>
                                 ))
                             ) : (
-                                <li>The stack is empty.</li>
+                                <div >The stack is empty.</div>
                             )}
-                        </ul>
+                        </div>
                     </div>
                 </>
             )}
