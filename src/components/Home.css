@@ -51,3 +51,8 @@
 .frame2_home:hover h2 {
   color: #1f618d;
 }
+
+.home-footer{
+  height: 5rem;
+  background-color: f0f0f0f;
+}
