@@ -15,11 +15,12 @@ const QueueData = () => {
     return (
         <>
             <h3 className="operationTitle">Enqueue Operation</h3>
+            {/* <hr /> */}
             <div className="queueOperation enqueue">
                 <div className="operationDetails">
-                    <img src={enqueueImg} alt="Enqueue Operation" />
+                    <img src={enqueueImg} alt="Enqueue Operation" id="queueImage"/>
                 </div>
-                <div className="operationDescription shift-left">
+                <div className="operationDescription">
                     <ul>
                         <li>The enqueue operation adds an element to the end (rear) of the queue.</li>
                         <li>It follows the First-In-First-Out (FIFO) principle.</li>
@@ -33,6 +34,7 @@ const QueueData = () => {
             </div>
 
             <h3 className="operationTitle">Dequeue Operation</h3>
+            {/* <hr /> */}
             <div className="queueOperation dequeue">
                 <div className="operationDescription">
                     <ul>
@@ -51,6 +53,7 @@ const QueueData = () => {
             </div>
 
             <h3 className="operationTitle">Front Element</h3>
+            {/* <hr /> */}
             <div className="queueOperation front">
                 <div className="operationDetails">
                     <img src={frontImg} alt="Front Operation" />

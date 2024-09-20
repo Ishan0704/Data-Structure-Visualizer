@@ -1,91 +1,64 @@
 .stack-container {
-    /* font-size: 1.3rem; */
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-radius: 0.625rem;
+    align-items: flex-start;
+    margin: 2rem 0;
 }
-
-.stack-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+.stack_p{
+    text-align: justify;
+}
+.stack-container div {
+    flex: 1;
 }
 
 .stack-image {
-    border-radius: 0.5rem;
-    max-width: 100%;
+    width: 27rem;
     height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.stack-push {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    color: #333;
-    margin-left: 1rem;
-}
-
-.stack-example-push {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 1rem;
+    margin-top: 2.5rem;
 }
 
 .stack-example {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 0.5rem;
-    padding: 0.75rem;
-    background-color: #fff;
+}
+
+.stack-example-push {
+    font-size: 1.2rem;
+    text-align: justify;
+    margin: 0.5rem 0;
+}
+
+.stack-example li {
+    list-style-type: none;
+    margin: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.stack-example li i {
+    margin-left: 0; /* Ensure no space between text and icon */
+}
+
+.btn-visualize-stack {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 1rem; 
+    margin-left: 1rem; /* Adjusted margin-left for the button */
 }
 
-.fa-regular {
-    color: #4d7e04;
-    margin-left: 0.5rem;
-    font-size: 1.25rem;
-}
-
-.fa-circle-xmark {
-    color: #bc0505;
-    font-size: 1.25rem;
-    margin-left: 0.5rem;
+.btn-visualize-stack:hover {
+    background-color: #0056b3;
 }
 
 .stack-top {
-    font-size: 1.125rem;
-    color: #222;
-    /* font-weight: bold; */
-    margin-left: 1rem;
-}
-
-.headingStack {
-    text-align: center;
-    font-size: 2.25rem;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.stack_p{
-    font-size: 1.3rem;
-    text-align: justify;
-    margin: 2rem;
-}
-#stack-common{
-    /* style={{fontSize:'1.2rem'}} */
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -94,42 +67,18 @@
         align-items: flex-start;
     }
 
-    .stack-image-container {
+    .stack-image {
         width: 100%;
-        justify-content: center;
-        margin: 1rem 0;
+        margin-top: 1rem;
+        order:1;
     }
-
-    .stack-push {
+    .stack-text{
+        order:2;
+    }
+    .btn-visualize-stack {
+        width: 100%;
+        text-align: center;
         margin-left: 0;
+        order:3;
     }
-}
-
-.btn-visualize {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 0.8rem;
-    float:left;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-visualize:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.stack-container p {
-    text-align: justify;
-    margin: 0;
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.6;
 }

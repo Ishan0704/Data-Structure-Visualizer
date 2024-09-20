@@ -48,7 +48,7 @@
   border-color: #444;
 }
 
-.frame1_data, .insert_at_head, .insert_at_tail, .insert_at_pos, .delete_at_head, .delete_at_tail, .update_by_val, .update_at_pos, .delete_at_pos, .search_by_val, .search_at_pos {
+ .insert_at_head, .insert_at_tail, .insert_at_pos, .delete_at_head, .delete_at_tail, .update_by_val, .update_at_pos, .delete_at_pos, .search_by_val, .search_at_pos {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -66,9 +66,11 @@ hr {
 }
 
 .frame1_data img, #image {
-  width: 50%;
+  width: 70%;
   height: auto;
   border-radius: 8px;
+  /* margin-top:10rem; */
+  margin-bottom:5rem;
   transition: transform 0.3s ease;
 }
 /* #deleteImg{
@@ -78,8 +80,9 @@ hr {
 } */
 
 .insert_at_head img, .insert_at_tail img, .insert_at_pos img, .delete_at_head img, .delete_at_tail img, .delete_at_pos img, .update_by_val img, .update_at_pos img, .search_by_val img, .search_at_pos img {
-  width: 45%;
+  width: 25rem;
   height: auto;
+  margin-top:2.5rem;
   border-radius: 8px;
 }
 
@@ -143,11 +146,12 @@ hr {
   }
   .frame1_data img, .insert_at_head img, .insert_at_tail img, .insert_at_pos img, .delete_at_head img, .delete_at_tail img, .delete_at_pos img, .update_by_val img, .update_at_pos img, .search_by_val img, .search_at_pos img {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 0.1rem;
   }
 
   #text-content {
     order: 2;
+    margin-top:-2rem;
     margin-bottom: 1rem;
   }
 

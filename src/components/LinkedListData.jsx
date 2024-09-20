@@ -288,7 +288,7 @@ function LinkedListData() {
             src={updateVal}
             alt="Node Diagram"
             id="image"
-            className="commonimg"
+            className="commonimg" style={{marginTop:'-0.2rem'}}
           />
           <div id="text-content">
             <ul>
@@ -335,7 +335,7 @@ function LinkedListData() {
             src={updateIndex}
             alt="Node Diagram"
             id="image"
-            className="right_img commonimg"
+            className="right_img commonimg" style={{marginTop:'-0.2rem'}}
           />
         </div>
       </div>

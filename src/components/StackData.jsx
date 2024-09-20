@@ -2,7 +2,6 @@ import img0 from "../images/stack0.png";
 import img1 from "../images/stack1.png";
 import img2 from "../images/stack2.png";
 import { useNavigate } from "react-router-dom";
-
 import "./Stack_data.css";
 
 const StackData = () => {
@@ -11,9 +10,10 @@ const StackData = () => {
   const visualizeLink = () => {
     navigate("/stack");
   };
+
   return (
     <>
-      <h1 classNamek="stack_heading">Stack</h1>
+      <h1 className="stack_heading">Stack</h1>
       <hr />
       <hr />
       <p className="stack_p">
@@ -35,82 +35,57 @@ const StackData = () => {
       <h2>Push Operation</h2>
       <hr />
       <div className="stack-container">
-        <div>
-          {/* Push operation */}
+        <div className="stack-text">
           <ul>
             <p className="stack-example-push" id="stack-common">
               Push Operation in stack is used to insert elements to stack
             </p>
             <p className="stack-example-push" id="stack-common">
-              <b>Stack Overflow :-</b> Special condition when element is pushed
+              <b>Stack Overflow :</b> Special condition when element is pushed
               and stack is full
             </p>
             <p className="stack-example-push" id="stack-common">
-              Example : Assume size of stack is 5
+              Example: Assume size of stack is 5
             </p>
 
             <li>
               <div className="stack-example">
-                <div className="stack-push">Push 10 to stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Push 10 to Stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Push 20 to stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Push 20 to Stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Push 30 to stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Push 30 to Stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Push 40 to stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Push 40 to Stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Push 50 to stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Push 50 to Stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Push operation fails</div>
-                <div>
-                  <i class="fa-regular fa-circle-xmark"></i>
-                </div>
+                Push operation fails <i className="fa-regular fa-circle-xmark"></i>
                 <div className="stack-push">
-                  Stack Overflow !! Stack size is 5{" "}
+                  Stack Overflow !! Stack size is 5
                 </div>
               </div>
             </li>
-            <button onClick={visualizeLink} className="btn-visualize">
-              Visualize
-            </button>
           </ul>
+          <button onClick={visualizeLink} className="btn-visualize-stack">
+            Visualize
+          </button>
         </div>
-
         <div>
           <img className="stack-image" src={img0} alt="Push Operation" />
         </div>
@@ -119,139 +94,108 @@ const StackData = () => {
       <h2 style={{ marginTop: "1vh" }}>Pop Operation</h2>
       <hr />
       <div className="stack-container">
-        <div>
+        <div className="stack-text">
           <img className="stack-image" src={img2} alt="Pop Operation" />
         </div>
-
         <div>
-          {/* Pop operation */}
           <ul>
             <p className="stack-example-push" id="stack-common">
               Pop operation is used to remove elements from stack
             </p>
             <p className="stack-example-push" id="stack-common">
-              <b>Stack Underflow :- </b> Special condition when stack is empty
-              and sill element is popped
+              <b>Stack Underflow :</b> Special condition when stack is empty
+              and still element is popped
             </p>
             <p className="stack-example-push" id="stack-common">
-              Example : Assume size of stack is 4
+              Example: Assume size of stack is 4
             </p>
 
             <li>
               <div className="stack-example">
-                <div className="stack-push">Pop 40 from stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Pop 40 from stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Pop 30 from stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Pop 30 from stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Pop 20 from stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Pop 20 from stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Pop 10 from stack</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
+                Pop 10 from stack <i className="fa-regular fa-circle-check"></i>
               </div>
             </li>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Pop operation fails</div>
-                <div>
-                  <i class="fa-regular fa-circle-xmark"></i>
-                </div>
+                Pop operation fails <i className="fa-regular fa-circle-xmark"></i>
                 <div className="stack-push">
-                  Stack Underflow !! Stack is Empty{" "}
+                  Stack Underflow !! Stack is Empty
                 </div>
               </div>
             </li>
-            <button onClick={visualizeLink} className="btn-visualize">
-              Visualize
-            </button>
           </ul>
+          <button onClick={visualizeLink} className="btn-visualize-stack">
+            Visualize
+          </button>
         </div>
       </div>
 
       <h2>Display Top Element</h2>
       <hr />
       <div className="stack-container">
-        <div>
-          {/* Display Top */}
+        <div className="stack-text">
           <ul>
             <p className="stack-example-push" id="stack-common">
-              In this operation Top element of stack is displayed
+              In this operation, the top element of the stack is displayed
             </p>
             <p className="stack-example-push" id="stack-common">
-              <b>LIFO :-</b> As stack is Last In First Out, therefore element
+              <b>LIFO :</b> As stack is Last In First Out, therefore element
               inserted at last is removed first
             </p>
-
             <li>
               <div className="stack-example">
-                <div className="stack-push">Case : 1</div>
-                <div className="stack-top"> Top : 10</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
+                Case : 1 <div className="stack-top">Top : 10</div>
+                <i className="fa-regular fa-circle-check"></i>
+              </div>
+            </li>
+            <li>
+              <div className="stack-example">
+                Case : 2 <div className="stack-top">Top : 40</div>
+                <i className="fa-regular fa-circle-check"></i>
+              </div>
+            </li>
+            <li>
+              <div className="stack-example">
+                Case : 3 <div className="stack-top">Top : 30</div>
+                <i className="fa-regular fa-circle-check"></i>
+              </div>
+            </li>
+            <li>
+              <div className="stack-example">
+                Case : 4 <div className="stack-top">Top : 20</div>
+                <i className="fa-regular fa-circle-check"></i>
+              </div>
+            </li>
+            <li>
+              <div className="stack-example">
+                Display operation fails <i className="fa-regular fa-circle-xmark"></i>
+                <div className="stack-push">
+                  Stack is Empty !! No top element
                 </div>
               </div>
             </li>
-
-            <li>
-              <div className="stack-example">
-                <div className="stack-push">Case : 2</div>
-                <div className="stack-top"> Top : 40</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div className="stack-example">
-                <div className="stack-push">Case : 3</div>
-                <div className="stack-top"> Top : 30</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div className="stack-example">
-                <div className="stack-push">Case : 4</div>
-                <div className="stack-top"> Top : 20</div>
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                </div>
-              </div>
-            </li>
-            <button onClick={visualizeLink} className="btn-visualize">
-              Visualize
-            </button>
           </ul>
+          <button onClick={visualizeLink} className="btn-visualize-stack">
+            Visualize
+          </button>
         </div>
-
         <div>
-          <img className="stack-image" src={img1} alt="Push Operation" />
+          <img className="stack-image" src={img1} alt="Display Top Element" />
         </div>
       </div>
     </>
