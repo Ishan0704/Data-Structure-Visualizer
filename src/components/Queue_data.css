@@ -1,93 +1,92 @@
-.operationTitle {
-    font-size: 22px;
-    color: #333;
-    margin: 30px 0 10px;
-    font-weight: bold;
-    border-bottom: 1px solid #000;
-    padding-bottom: 10px;
-    text-transform: uppercase;
-}
+/* Queue_data.css */
 
 .queueOperation {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    gap: 8rem;
-    margin: 20px auto;
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: 2rem;
+}
+
+.operationDetails {
+  flex: 1;
+  text-align: center;
 }
 
 .operationDetails img {
-    width: 40rem;
-    height: 19rem;
-    border-radius: 5px;
-    margin: 0 20px;
+  width: 25rem;
+  height: auto;
+
 }
 
 .operationDescription {
-    flex: 1;
+  flex: 2;
+  padding-left: 1rem;
 }
 
-.operationDescription ul {
-    padding-left: 2rem;
-    color: #333;
+.operationDescription li{
+    font-size:1.2rem;
 }
 
-.operationDescription li {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    text-align: justify;
-    margin-bottom: 12px;
-    color: #222;
+.operationTitle {
+  font-size: 1.75rem;
+  color: #444;
+  border-bottom: 2px solid #444;
+  padding-bottom: 0.5rem;
 }
 
-.queueOperation.enqueue {
-    color: #333;
-}
-
-.queueOperation.dequeue {
-    color: #ff9800;
-}
-
-.queueOperation.front {
-    color: #007bff;
+.operationTitle:hover {
+  color: #333;
+  border-color: #333;
 }
 
 .btn-visualize {
-    display: inline-block;
-    padding: 8px 15px;
-    font-size: 16px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-top: 15px;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 0.8rem;
+  float: left;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-visualize:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.operationDescription li {
+  text-align: left;
+}
+
+@media (max-width: 48rem) {
+  .queueOperation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .operationDetails {
     text-align: left;
-    float: left;
-    clear: both;
-}
+    margin-bottom: 0.625rem;
+    order: 1;
+  }
 
-.shift-left{
-    padding-right: 3.5rem;
-}
-
-@media (max-width: 768px) {
-    .queueOperation {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .operationDetails img {
-        margin-bottom: 15px;
-    }
-
-    .operationDescription {
-        padding: 0;
-    }
-
-    .btn-visualize {
-        float: none;
-        margin-left: 0;
-    }
+  .operationDetails img {
+    width: 25rem;
+    height: auto;
+    margin-left:2rem;
+  }
+  .operationDescription {
+    /* padding-left: 0; */
+    order: 2;
+  }
+  .btn-visualize {
+    order: 3;
+    /* width:100%; */
+  }
 }
