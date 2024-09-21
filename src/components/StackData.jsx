@@ -8,7 +8,7 @@ const StackData = () => {
   const navigate = useNavigate();
 
   const visualizeLink = () => {
-    navigate("/stack");
+    navigate("/stack-visualizer");
   };
 
   return (

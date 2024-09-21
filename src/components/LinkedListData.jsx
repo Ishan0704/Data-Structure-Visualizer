@@ -17,7 +17,7 @@ function LinkedListData() {
   const navigate = useNavigate();
 
   const visualizeLink = () => {
-    navigate("/linkedlist");
+    navigate("/linkedlist-visualizer");
   };
   return (
     <div className="linkedMainContainer">
