@@ -4,12 +4,26 @@ import dsa_image from "../images/dsa.png";
 import "./Navbar.css";
 function Navbar() {
   const [mobileview, setMobileview] = useState(false);
+  const [dropdown, setDropdown] = useState({});
 
   const openMenu = () => {
     setMobileview(true);
   };
   const closeNav = () => {
     setMobileview(false);
+    setDropdown({});
+  };
+
+  const toggleDropdown = (item) => {
+    setDropdown((prev) => ({
+      ...prev,
+      [item]: !prev[item],
+    }));
+  };
+
+  const scrollToContainer = (dsa_name) => {
+    window.location.href = `/#${dsa_name}`;
+    closeNav();
   };
   return (
     <>
@@ -17,39 +31,126 @@ function Navbar() {
         <div className="container_nav">
           <div className="frame_nav">
             <img src={dsa_image} id="image1" alt="Data Visualizer Logo" />
-            <h2>Data Visualizer</h2>
+            <h2 style={{ marginTop: "0.2rem" }}>DSA Visualizer</h2>
           </div>
           <div className="frame2_nav">
             <ul>
-              <Link className="linkTag" to="/">
+              <Link className="linkTag" to="/" onClick={closeNav}>
                 Home
               </Link>
             </ul>
 
             <ul>
-              <Link className="linkTag" to="/array">
-                Array
-              </Link>
+              <div className="dropdown">
+                <button
+                  className="linkTag"
+                  onClick={() => toggleDropdown("array")}
+                >
+                  Array
+                </button>
+                {dropdown.array && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("array-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/array-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
             </ul>
 
             <ul>
-              <Link className="linkTag" to="/linkedlist">
-                Linked List
-              </Link>
+              <div className="dropdown">
+                <button
+                  className="linkTag"
+                  onClick={() => toggleDropdown("linkedlist")}
+                >
+                  Linked List
+                </button>
+                {dropdown.linkedlist && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("linkedlist-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/linkedlist-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
             </ul>
 
             <ul>
-              <Link className="linkTag" to="/stack">
-                Stack
-              </Link>
+              <div className="dropdown">
+                <button
+                  className="linkTag"
+                  onClick={() => toggleDropdown("stack")}
+                >
+                  Stack
+                </button>
+                {dropdown.stack && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("stack-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/stack-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
             </ul>
-            
+
             <ul>
-              <Link className="linkTag" to="/queue">
-                Queue
-              </Link>
+              <div className="dropdown">
+                <button
+                  className="linkTag"
+                  onClick={() => toggleDropdown("queue")}
+                >
+                  Queue
+                </button>
+                {dropdown.queue && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("queue-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/queue-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
             </ul>
-            
           </div>
         </div>
       </nav>
@@ -73,32 +174,114 @@ function Navbar() {
                 Home
               </Link>
             </ul>
-
             <ul>
-              <Link className="linkTag2" to="/array" onClick={closeNav}>
-                Array
-              </Link>
+              <div className="dropdown">
+                <button
+                  className="linkTag2"
+                  onClick={() => toggleDropdown("array")}
+                >
+                  Array
+                </button>
+                {dropdown.array && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("array-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/array-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
             </ul>
-            
             <ul>
-              <Link className="linkTag2" to="/linkedlist" onClick={closeNav}>
-                Linked List
-              </Link>
+              <div className="dropdown">
+                <button
+                  className="linkTag2"
+                  onClick={() => toggleDropdown("linkedlist")}
+                >
+                  Linked List
+                </button>
+                {dropdown.linkedlist && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("linkedlist-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/linkedlist-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
             </ul>
-
             <ul>
-              <Link className="linkTag2" to="/stack" onClick={closeNav}>
-                Stack
-              </Link>
+              <div className="dropdown">
+                <button
+                  className="linkTag2"
+                  onClick={() => toggleDropdown("stack")}
+                >
+                  Stack
+                </button>
+                {dropdown.stack && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("stack-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/stack-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
             </ul>
-
             <ul>
-              <Link className="linkTag2" to="/queue" onClick={closeNav}>
-                Queue
-              </Link>
-            </ul>
-            
-            
+              <div className="dropdown">
+                <button
+                  className="linkTag2"
+                  onClick={() => toggleDropdown("queue")}
+                >
+                  Queue
+                </button>
+                {dropdown.queue && (
+                  <div className="dropdown-menu">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => scrollToContainer("queue-scroll")}
+                    >
+                      Theory
+                    </button>
+                    <Link
+                      className="dropdown-item"
+                      to="/queue-visualizer"
+                      onClick={closeNav}
+                    >
+                      Visualizer
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </ul>{" "}
           </div>
         )}
       </div>

@@ -15,10 +15,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/stack" element={<Stack/>}/>
-          <Route path="/queue" element={<Queue/>}/>
-          <Route path="/linkedlist" element={<LinkedList />} />
-          <Route path="/array" element={<Array />} />
+          <Route path="/stack-visualizer" element={<Stack/>}/>
+          <Route path="/queue-visualizer" element={<Queue/>}/>
+          <Route path="/linkedlist-visualizer" element={<LinkedList />} />
+          <Route path="/array-visualizer" element={<Array />} />
         </Routes>
       </Router>
     </div>
