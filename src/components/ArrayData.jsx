@@ -11,7 +11,7 @@ const ArrayData = () => {
   const navigate = useNavigate();
 
   const visualizeLink = () => {
-    navigate("/array");
+    navigate("/array-visualizer");
   };
   return (
     <>

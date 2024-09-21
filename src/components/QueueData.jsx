@@ -9,7 +9,7 @@ const QueueData = () => {
   const navigate = useNavigate(); // useNavigate hook must be inside the component
 
   const visualizeLink = () => {
-    navigate("/queue");
+    navigate("/queue-visualizer");
   };
 
   return (

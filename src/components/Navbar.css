@@ -63,13 +63,13 @@ nav {
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: white;
+  width: max-content;
   border: 1px solid #ccc;
-  color: blue;
   border-radius: 0.5rem;
   z-index: 1000;
-  width: 100%;
+  padding: 0.5rem 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -77,10 +77,13 @@ nav {
 }
 
 .dropdown-item {
-  padding: 0.5rem 1rem;
+  background-color: antiquewhite;
+  padding: 0.75rem 1rem;
   text-decoration: none;
   color: black;
   display: block;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
 }
 
 .dropdown-item:hover {
