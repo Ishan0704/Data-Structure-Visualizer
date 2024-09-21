@@ -55,102 +55,116 @@ function LinkedListData() {
           new node:
         </p>
 
-        <h3 className="heading3">Insert At Head</h3>
-        <div className="insert_at_head">
-          <img
-            src={insertHead}
-            alt="Node Diagram"
-            id="image"
-            className="commonimg"
-          />
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Add a new node at the start of the linked
-                list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>Create a new node.</li>
-              <li>
-                Set the new node's next pointer to point to the current head of
-                the list.
-              </li>
-              <li>Update the head of the list to point to the new node.</li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
-        </div>
+        <ul className="LinkedList-content-sub">
+          {/* insert at head */}
 
-        <h3 className="heading3">Insert At Tail</h3>
-        <div className="insert_at_tail">
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Add a new node at the end of the linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>Traverse the list to find the last node.</li>
-              <li>Create a new node.</li>
-              <li>Set the last node's next pointer to the new node.</li>
-              <li>Set the new node's next pointer to null.</li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
-          <img
-            src={insertTail}
-            alt="Node Diagram"
-            className="right_img commonimg"
-            id="image"
-          />
-        </div>
+          <li>
+            <h3 className="heading3">Insert At Head</h3>
+            <div className="insert_at_head">
+              <img
+                src={insertHead}
+                alt="Node Diagram"
+                id="image"
+                className="commonimg"
+              />
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Add a new node at the start of the linked
+                    list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>Create a new node.</li>
+                  <li>
+                    Set the new node's next pointer to point to the current head
+                    of the list.
+                  </li>
+                  <li>Update the head of the list to point to the new node.</li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </li>
+          {/* insert Tail */}
 
-        <h3 className="heading3">Insert At Any Position</h3>
-        <div className="insert_at_pos">
-          <img
-            src={insertPos}
-            alt="Node Diagram"
-            id="image"
-            className="commonimg"
-          />
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Add a new node at a specific position in the
-                linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>
-                Traverse the list to find the node at the position before the
-                desired insert position.
-              </li>
-              <li>Create a new node.</li>
-              <li>
-                Set the new node's next pointer to the next pointer of the
-                previous node.
-              </li>
-              <li>Update the previous node's next pointer to the new node.</li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
-        </div>
+          <li>
+            <h3 className="heading3">Insert At Tail</h3>
+            <div className="insert_at_tail">
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Add a new node at the end of the linked
+                    list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>Traverse the list to find the last node.</li>
+                  <li>Create a new node.</li>
+                  <li>Set the last node's next pointer to the new node.</li>
+                  <li>Set the new node's next pointer to null.</li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
+              <img
+                src={insertTail}
+                alt="Node Diagram"
+                className="right_img commonimg"
+                id="image"
+              />
+            </div>
+          </li>
+          {/* insert at pos */}
+          <li>
+            <h3 className="heading3">Insert At Any Position</h3>
+            <div className="insert_at_pos">
+              <img
+                src={insertPos}
+                alt="Node Diagram"
+                id="image"
+                className="commonimg"
+              />
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Add a new node at a specific position in
+                    the linked list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>
+                    Traverse the list to find the node at the position before
+                    the desired insert position.
+                  </li>
+                  <li>Create a new node.</li>
+                  <li>
+                    Set the new node's next pointer to the next pointer of the
+                    previous node.
+                  </li>
+                  <li>
+                    Update the previous node's next pointer to the new node.
+                  </li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
 
       {/* Delete */}
@@ -165,110 +179,123 @@ function LinkedListData() {
           properly linked and functional.
         </p>
 
-        <h3 className="heading3">Delete At Head</h3>
-        <div className="delete_at_head">
-          <img
-            src={deleteHead}
-            alt="Node Diagram"
-            id="image"
-            className="commonimg"
-          />
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Remove the first node from the linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>Identify the current head of the linked list.</li>
-              <li>
-                Set the head pointer to point to the next node in the list,
-                effectively removing the current head node from the list.
-              </li>
-              <li>
-                Free the memory allocated for the old head node to avoid memory
-                leaks.
-              </li>
-              <li>
-                Update the linked list’s head reference to the new first node.
-              </li>
-              <li>
-                Ensure all references to the old head node are removed or
-                updated appropriately.
-              </li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
-        </div>
+        <ul className="LinkedList-content-sub">
+          <li>
+            {/* Delete at head */}
+            <h3 className="heading3">Delete At Head</h3>
+            <div className="delete_at_head">
+              <img
+                src={deleteHead}
+                alt="Node Diagram"
+                id="image"
+                className="commonimg"
+              />
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Remove the first node from the linked
+                    list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>Identify the current head of the linked list.</li>
+                  <li>
+                    Set the head pointer to point to the next node in the list,
+                    effectively removing the current head node from the list.
+                  </li>
+                  <li>
+                    Free the memory allocated for the old head node to avoid
+                    memory leaks.
+                  </li>
+                  <li>
+                    Update the linked list’s head reference to the new first
+                    node.
+                  </li>
+                  <li>
+                    Ensure all references to the old head node are removed or
+                    updated appropriately.
+                  </li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </li>
 
-        <h3 className="heading3">Delete At Tail</h3>
-        <div className="delete_at_tail">
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Remove the last node from the linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>Traverse the list to find the second-to-last node.</li>
-              <li>Set the second-to-last node's next pointer to null.</li>
-              <li>Free the memory of the last node.</li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
+          <li>
+            {/* Delele at tail */}
+            <h3 className="heading3">Delete At Tail</h3>
+            <div className="delete_at_tail">
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Remove the last node from the linked list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>Traverse the list to find the second-to-last node.</li>
+                  <li>Set the second-to-last node's next pointer to null.</li>
+                  <li>Free the memory of the last node.</li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
 
-          <img
-            src={deleteTail}
-            alt="Node Diagram"
-            id="image deleteImg"
-            className="right_img commonimg"
-          />
-        </div>
+              <img
+                src={deleteTail}
+                alt="Node Diagram"
+                id="image deleteImg"
+                className="right_img commonimg"
+              />
+            </div>
+          </li>
 
-        <h3 className="heading3">Delete At Any Position</h3>
-        <div className="delete_at_pos">
-          <img
-            src={deletePos}
-            alt="Node Diagram"
-            id="image"
-            className="commonimg"
-          />
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Remove a node at a specific position in the
-                linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>
-                Traverse the list to find the node just before the desired
-                position.
-              </li>
-              <li>
-                Update the previous node's next pointer to skip the node to be
-                deleted.
-              </li>
-              <li>Free the memory of the node to be deleted.</li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
-        </div>
+          <li>
+            {/* Delete at any pos */}
+            <h3 className="heading3">Delete At Any Position</h3>
+            <div className="delete_at_pos">
+              <img
+                src={deletePos}
+                alt="Node Diagram"
+                id="image"
+                className="commonimg"
+              />
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Remove a node at a specific position in
+                    the linked list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>
+                    Traverse the list to find the node just before the desired
+                    position.
+                  </li>
+                  <li>
+                    Update the previous node's next pointer to skip the node to
+                    be deleted.
+                  </li>
+                  <li>Free the memory of the node to be deleted.</li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
 
       {/* Update */}
@@ -282,62 +309,72 @@ function LinkedListData() {
           is not found, an appropriate error or indication is given.
         </p>
 
-        <h3 className="heading3">Update By Value</h3>
-        <div className="update_by_val">
-          <img
-            src={updateVal}
-            alt="Node Diagram"
-            id="image"
-            className="commonimg"
-          />
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Update the value of a node in the linked list
-                based on its value.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>Traverse the list to find the node with the target value.</li>
-              <li>Update the node's value with the new value.</li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
-        </div>
+        <ul className="LinkedList-content-sub">
+          <li>
+            {/* update by value */}
+            <h3 className="heading3">Update By Value</h3>
+            <div className="update_by_val">
+              <img
+                src={updateVal}
+                alt="Node Diagram"
+                id="image"
+                className="commonimg"
+              />
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Update the value of a node in the linked
+                    list based on its value.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>
+                    Traverse the list to find the node with the target value.
+                  </li>
+                  <li>Update the node's value with the new value.</li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </li>
 
-        <h3 className="heading3">Update By index</h3>
-        <div className="update_at_pos">
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Update the value of a node at a specific index
-                in the linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>Traverse the list to the node at the specified index.</li>
-              <li>Update the node's value with the new value.</li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
+          <li>
+            {/* Update by index */}
+            <h3 className="heading3">Update By index</h3>
+            <div className="update_at_pos">
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Update the value of a node at a specific
+                    index in the linked list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>Traverse the list to the node at the specified index.</li>
+                  <li>Update the node's value with the new value.</li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
 
-          <img
-            src={updateIndex}
-            alt="Node Diagram"
-            id="image"
-            className="right_img commonimg"
-          />
-        </div>
+              <img
+                src={updateIndex}
+                alt="Node Diagram"
+                id="image"
+                className="right_img commonimg"
+              />
+            </div>
+          </li>
+        </ul>
       </div>
 
       {/* Search */}
@@ -351,43 +388,51 @@ function LinkedListData() {
           of the absence is provided.
         </p>
 
-        <h3 className="heading3">Search By Value</h3>
-        <div className="update_by_val">
-          <img
-            src={searchVal}
-            alt="Node Diagram"
-            id="image"
-            className="commonimg"
-          />
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Find a node with a specific value in the
-                linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>
-                Traverse the list while comparing each node's value to the
-                target value.
-              </li>
-              <li>If the value is found, return the node or its position.</li>
-              <li>
-                If the end of the list is reached without finding the value,
-                indicate that the value is not present.
-              </li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
-        </div>
+        <ul className="LinkedList-content-sub">
+          <li>
+            {/* Search by value */}
+            <h3 className="heading3">Search By Value</h3>
+            <div className="update_by_val">
+              <img
+                src={searchVal}
+                alt="Node Diagram"
+                id="image"
+                className="commonimg"
+              />
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Find a node with a specific value in the
+                    linked list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>
+                    Traverse the list while comparing each node's value to the
+                    target value.
+                  </li>
+                  <li>
+                    If the value is found, return the node or its position.
+                  </li>
+                  <li>
+                    If the end of the list is reached without finding the value,
+                    indicate that the value is not present.
+                  </li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </li>
 
-        <h3 className="heading3">Search By index</h3>
-        <div className="update_at_pos">
+          <li>
+            {/* Search by index */}
+            <h3 className="heading3">Search By index</h3>
+            <div className="update_at_pos">
           <div id="text-content">
             <ul>
               <li>
@@ -418,6 +463,9 @@ function LinkedListData() {
             className="right_img commonimg"
           />
         </div>
+          </li>
+        </ul>
+
       </div>
     </div>
   );

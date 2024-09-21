@@ -2,6 +2,7 @@
   padding: 1.25rem;
   font-family: Arial, sans-serif;
   /* background-color: #f9f9f9; */
+  margin-bottom: 1.5rem;
 }
 
 .heading1, .heading2, .heading3 {
@@ -41,6 +42,7 @@
   color: #555;
   border-bottom: 1px solid #555;
   padding-bottom: 0.5rem;
+  text-align: left;
 }
 
 .heading3:hover {
@@ -53,10 +55,9 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
-  padding: 0.625rem;
   margin-bottom: 1rem;
+  padding: 2rem;
 }
-
 
 hr {
   border: none;
@@ -113,7 +114,7 @@ hr {
 
 .content {
   text-align: justify;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
 }
 
 .btn-visualize {
@@ -136,16 +137,33 @@ hr {
   transform: scale(1.05);
 }
 
+.LinkedList-content-sub{
+  padding: 0%;
+  margin-left: 1rem;
+}
+
+.frame1_data,.frame2_data,.frame3_data,.frame4_data{
+  margin-bottom: 0.5rem;
+}
+
+.frame5_data,.frame2_data,.frame3_data,.frame4_data{
+  padding: 1.5rem;
+}
+
 @media (max-width: 600px) {
   .frame1_data, .insert_at_head, .insert_at_tail, .insert_at_pos, .delete_at_head, .delete_at_tail, .update_by_val, .update_at_pos, .delete_at_pos, .search_by_val, .search_at_pos {
     flex-direction: column;
     align-items: center;
   }
   .frame1_data img, .insert_at_head img, .insert_at_tail img, .insert_at_pos img, .delete_at_head img, .delete_at_tail img, .delete_at_pos img, .update_by_val img, .update_at_pos img, .search_by_val img, .search_at_pos img {
-    width: 100%;
-    margin-bottom: 1rem;
+    /* width: 20rem; */
+    /* margin-bottom: 1rem; */
+    /* object-fit: cover; */
+    /* aspect-ratio: 3/2; */
+    /* width: 100%; */
+    
   }
-
+  
   #text-content {
     order: 2;
     margin-bottom: 1rem;
@@ -156,4 +174,17 @@ hr {
     width: 100%;
     margin-top: 0;
   }
+
+  .linkedMainContainer{
+    padding: 0;
+  }
+
+  .frame1_data,.frame2_data,.frame3_data,.frame4_data,.frame5_data{
+    padding: 0.6rem;
+  }
+
+  .insert_at_head, .insert_at_tail, .insert_at_pos, .delete_at_head, .delete_at_tail, .update_by_val, .update_at_pos, .delete_at_pos, .search_by_val, .search_at_pos{
+    padding: 0;
+  }
+
 }
