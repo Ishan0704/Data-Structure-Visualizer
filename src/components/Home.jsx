@@ -6,6 +6,7 @@ import QueueData from './QueueData';
 
 function Home() {
     return (
+        <>
         <div className="home_container">
             <div className="frame1_home">
                 <h1>Welcome to DSA Visualizer</h1>
@@ -28,8 +29,9 @@ function Home() {
                 
                 <QueueData />
             </div>
+        </div>
 
-            <footer className='home-footer'>
+        <footer className='home-footer'>
                 <div className="footer-content">
                     <p>&copy; {new Date().getFullYear()} DSA Visualizer. All rights reserved.</p>
                     <div className="social-links">
@@ -38,7 +40,8 @@ function Home() {
                     </div>
                 </div>
             </footer>
-        </div>
+        </>
+        
     );
 }
 

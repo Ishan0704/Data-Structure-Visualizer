@@ -36,12 +36,7 @@ function LinkedListData() {
           arrays, as it typically requires traversing the list from the
           beginning to reach a specific node.
         </p>
-        <img
-          src={nodeImg}
-          alt="Node Diagram"
-          id="nodemainImg"
-          className="commonimg"
-        />
+        <img src={nodeImg} alt="Node Diagram" id="nodemainImg" />
       </div>
 
       {/* Insert */}
@@ -61,12 +56,8 @@ function LinkedListData() {
           <li>
             <h3 className="heading3">Insert At Head</h3>
             <div className="insert_at_head">
-              <img
-                src={insertHead}
-                alt="Node Diagram"
-                id="image"
-                className="commonimg"
-              />
+              <img src={insertHead} alt="Node Diagram" className="rightImg"/>
+
               <div id="text-content">
                 <ul>
                   <li>
@@ -116,24 +107,14 @@ function LinkedListData() {
                   </button>
                 </ul>
               </div>
-              <img
-                src={insertTail}
-                alt="Node Diagram"
-                className="right_img commonimg"
-                id="image"
-              />
+              <img src={insertTail} alt="Node Diagram" />
             </div>
           </li>
           {/* insert at pos */}
           <li>
             <h3 className="heading3">Insert At Any Position</h3>
             <div className="insert_at_pos">
-              <img
-                src={insertPos}
-                alt="Node Diagram"
-                id="image"
-                className="commonimg"
-              />
+              <img src={insertPos} alt="Node Diagram" className="rightImg"/>
               <div id="text-content">
                 <ul>
                   <li>
@@ -184,12 +165,7 @@ function LinkedListData() {
             {/* Delete at head */}
             <h3 className="heading3">Delete At Head</h3>
             <div className="delete_at_head">
-              <img
-                src={deleteHead}
-                alt="Node Diagram"
-                id="image"
-                className="commonimg"
-              />
+              <img src={deleteHead} alt="Node Diagram" className="rightImg"/>
               <div id="text-content">
                 <ul>
                   <li>
@@ -249,12 +225,7 @@ function LinkedListData() {
                 </ul>
               </div>
 
-              <img
-                src={deleteTail}
-                alt="Node Diagram"
-                id="image deleteImg"
-                className="right_img commonimg"
-              />
+              <img src={deleteTail} alt="Node Diagram" className="right_img" />
             </div>
           </li>
 
@@ -262,12 +233,7 @@ function LinkedListData() {
             {/* Delete at any pos */}
             <h3 className="heading3">Delete At Any Position</h3>
             <div className="delete_at_pos">
-              <img
-                src={deletePos}
-                alt="Node Diagram"
-                id="image"
-                className="commonimg"
-              />
+              <img src={deletePos} alt="Node Diagram" className="rightImg"/>
               <div id="text-content">
                 <ul>
                   <li>
@@ -314,12 +280,7 @@ function LinkedListData() {
             {/* update by value */}
             <h3 className="heading3">Update By Value</h3>
             <div className="update_by_val">
-              <img
-                src={updateVal}
-                alt="Node Diagram"
-                id="image"
-                className="commonimg"
-              />
+              <img src={updateVal} alt="Node Diagram" className="rightImg"/>
               <div id="text-content">
                 <ul>
                   <li>
@@ -366,12 +327,7 @@ function LinkedListData() {
                 </ul>
               </div>
 
-              <img
-                src={updateIndex}
-                alt="Node Diagram"
-                id="image"
-                className="right_img commonimg"
-              />
+              <img src={updateIndex} alt="Node Diagram" />
             </div>
           </li>
         </ul>
@@ -393,12 +349,7 @@ function LinkedListData() {
             {/* Search by value */}
             <h3 className="heading3">Search By Value</h3>
             <div className="update_by_val">
-              <img
-                src={searchVal}
-                alt="Node Diagram"
-                id="image"
-                className="commonimg"
-              />
+              <img src={searchVal} alt="Node Diagram" className="rightImg"/>
               <div id="text-content">
                 <ul>
                   <li>
@@ -433,39 +384,33 @@ function LinkedListData() {
             {/* Search by index */}
             <h3 className="heading3">Search By index</h3>
             <div className="update_at_pos">
-          <div id="text-content">
-            <ul>
-              <li>
-                <b>Objective:</b> Retrieve the value of the node at a specific
-                index in the linked list.
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <b>Process:</b>
-              </li>
-              <li>Traverse the list to the node at the specified index.</li>
-              <li>Return the node's value.</li>
-              <li>
-                If the index is out of bounds, indicate an error or that the
-                index is invalid.
-              </li>
-              <button onClick={visualizeLink} className="btn-visualize">
-                Visualize
-              </button>
-            </ul>
-          </div>
+              <div id="text-content">
+                <ul>
+                  <li>
+                    <b>Objective:</b> Retrieve the value of the node at a
+                    specific index in the linked list.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Process:</b>
+                  </li>
+                  <li>Traverse the list to the node at the specified index.</li>
+                  <li>Return the node's value.</li>
+                  <li>
+                    If the index is out of bounds, indicate an error or that the
+                    index is invalid.
+                  </li>
+                  <button onClick={visualizeLink} className="btn-visualize">
+                    Visualize
+                  </button>
+                </ul>
+              </div>
 
-          <img
-            src={searchIndex}
-            alt="Node Diagram"
-            id="image"
-            className="right_img commonimg"
-          />
-        </div>
+              <img src={searchIndex} alt="Node Diagram" />
+            </div>
           </li>
         </ul>
-
       </div>
     </div>
   );

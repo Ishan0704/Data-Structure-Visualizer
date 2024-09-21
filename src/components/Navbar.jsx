@@ -25,34 +25,47 @@ function Navbar() {
                 Home
               </Link>
             </ul>
-            <ul>
-              <Link className="linkTag" to="/stack">
-                Stack
-              </Link>
-            </ul>
-            <ul>
-              <Link className="linkTag" to="/queue">
-                Queue
-              </Link>
-            </ul>
-            <ul>
-              <Link className="linkTag" to="/linkedlist">
-                Linked List
-              </Link>
-            </ul>
+
             <ul>
               <Link className="linkTag" to="/array">
                 Array
               </Link>
             </ul>
+
+            <ul>
+              <Link className="linkTag" to="/linkedlist">
+                Linked List
+              </Link>
+            </ul>
+
+            <ul>
+              <Link className="linkTag" to="/stack">
+                Stack
+              </Link>
+            </ul>
+            
+            <ul>
+              <Link className="linkTag" to="/queue">
+                Queue
+              </Link>
+            </ul>
+            
           </div>
         </div>
       </nav>
 
       <div className="mobile_container">
-        <button className="menu-button" onClick={openMenu}>
-          <i className="fas fa-bars menu-icon"></i>
-        </button>
+        <div className="mobile-container-logo">
+          <img src={dsa_image} id="image1" alt="Data Visualizer Logo" />
+          <h2>Data Visualizer</h2>
+        </div>
+
+        <div className="mobile-container-buttons">
+          <button className="menu-button" onClick={openMenu}>
+            <i className="fas fa-bars menu-icon"></i>
+          </button>
+        </div>
+
         {mobileview && (
           <div className="navbar_mobile">
             <ul>
@@ -60,27 +73,32 @@ function Navbar() {
                 Home
               </Link>
             </ul>
-            <ul>
-              <Link className="linkTag2" to="/stack" onClick={closeNav}>
-                Stack
-              </Link>
-            </ul>
-            <ul>
-              <Link className="linkTag2" to="/queue" onClick={closeNav}>
-                Queue
-              </Link>
-            </ul>
-            <ul>
-              <Link className="linkTag2" to="/linkedlist" onClick={closeNav}>
-                {" "}
-                Linked List
-              </Link>
-            </ul>
+
             <ul>
               <Link className="linkTag2" to="/array" onClick={closeNav}>
                 Array
               </Link>
             </ul>
+            
+            <ul>
+              <Link className="linkTag2" to="/linkedlist" onClick={closeNav}>
+                Linked List
+              </Link>
+            </ul>
+
+            <ul>
+              <Link className="linkTag2" to="/stack" onClick={closeNav}>
+                Stack
+              </Link>
+            </ul>
+
+            <ul>
+              <Link className="linkTag2" to="/queue" onClick={closeNav}>
+                Queue
+              </Link>
+            </ul>
+            
+            
           </div>
         )}
       </div>
