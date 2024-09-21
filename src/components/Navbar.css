@@ -46,14 +46,45 @@ nav {
 .linkTag {
   text-decoration: none;
   color: white;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .linkTag:hover {
   color: yellow;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.frame2_nav ul:hover {
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  color: blue;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
   color: black;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
 }
 
 .mobile_container {
@@ -127,5 +158,26 @@ nav {
 
   .linkTag2:hover {
     background-color: darkgray;
+  }
+  .dropdown-menu {
+    position: absolute;
+    background-color: rgb(67, 59, 59);
+    border: 1px solid #ccc;
+    color:blue;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 100%;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
   }
 }
